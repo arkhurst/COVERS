@@ -6,8 +6,10 @@ export default function({image, number, status}){
     return(
         <View>
             <Image source={image} style={styles.image} />
+          
             <Text style={styles.number}>{number}</Text>
             <Text style={styles.status}>{status}</Text>
+         
         </View>
     );
 };
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
         width:330,
         borderRadius:10,
         marginHorizontal:10,
-        marginVertical:20
+        marginVertical:20,
     },
     number:{
         position:'absolute',
