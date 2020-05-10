@@ -1,11 +1,15 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
+import Header from '../../componets/header';
 
 
 export default function SettingsScreen(){
     return(
         <View style={styles.container}>
+            <Header>
+                <Text>Settings</Text>
+            </Header>
             <Text>Hello from Settings</Text>
         </View>
     );

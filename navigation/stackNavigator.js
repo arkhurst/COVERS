@@ -12,10 +12,7 @@ export default function StackNavigator(){
                name="Tabs" 
                component={BottomTab} 
                 options={{
-                    header:({navigation,scene}) => (
-                        <Header navigation={navigation} />
-                    ),
-                    
+                   headerShown:false
                 }}   
             />
         </Stack.Navigator>

@@ -13,7 +13,7 @@ const BottomTab = () => {
         <Tab.Navigator tabBarOptions={{
             activeTintColor:'black',
             inactiveTintColor:'grey',
-            labelStyle:{fontWeight:'700'},
+            labelStyle:{fontWeight:'700', fontSize:13},
           
         }}>
             <Tab.Screen 

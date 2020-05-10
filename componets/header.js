@@ -1,19 +1,44 @@
-import React from 'react';
-import { Text, StyleSheet, View} from 'react-native';
+import React, { useState } from 'react';
+import { Text, StyleSheet, View, Dimensions, Button} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import Constants from 'expo-constants'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import ProfileModal from './profileModal';
 
 
-const Header = ({title, navigation}) =>{
+const { width, height } =Dimensions.get('window');
+
+const Header = (props) =>{
+
+    const [visible, setVisible ] = useState(false);
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+      };
+    
+
+      const cancel = () => {
+        setVisible(false);
+      };
+      const openModal = () => {
+        setVisible(!visible);
+      };
+
+ 
+
     return(
         <View style={styles.container}>
             <View style={styles.firstContainer}>
-               <FontAwesome name="user-circle" size={34} />
-               <Text>Title</Text>
+                <TouchableOpacity onPress={openModal}>
+                  <FontAwesome name="user-circle" size={33} />
+                  <ProfileModal visible={visible} cancel={cancel} />
+                </TouchableOpacity>  
+               <Text style={styles.headerTitle}>{props.children}</Text>
             </View>
-            <View>
-                <FontAwesome name='bell-o' size={34} />
-            </View>
+            <TouchableOpacity style={styles.icon} onPress={toggleModal} >
+                <FontAwesome name='bell-o' size={30} color="black" />
+ 
+            </TouchableOpacity>
         </View>
     )
 }
@@ -25,10 +50,19 @@ const styles = StyleSheet.create({
         borderBottomWidth:StyleSheet.hairlineWidth,
         borderColor:'grey',
         justifyContent:'space-between',
-        paddingTop:Constants.statusBarHeight
+        height:height*0.14,
+        paddingHorizontal:20
+      
     },
     firstContainer:{
-        justifyContent:'space-between'
+        justifyContent:'space-around'
+    },
+    icon:{
+        marginTop:10
+    },
+    headerTitle:{
+        fontSize:30,
+        fontWeight:'bold'
     }
 })
 
