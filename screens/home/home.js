@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
-import Header from '../../componets/header';
-
+import Header from '../../components/header/header';
+import { FlatList } from 'react-native-gesture-handler';
+import { Slider } from '../../data/sliderItems';
+import SliderComponent from '../../components/home/sliderComponent';
 
 export default function HomeScreen(){
     return(
@@ -10,7 +12,16 @@ export default function HomeScreen(){
             <Header>
                 <Text>Home</Text>
             </Header>
-            <Text>Hello from Home</Text>
+             <View style={styles.slider}>
+                <FlatList 
+                  data={Slider}
+                  renderItem={({item}) => (
+                      <SliderComponent {...item} />
+                  )}
+                  keyExtractor={(item) => item.id.toString()}
+                  horizontal
+                />
+             </View>
         </View>
     );
 };
@@ -20,5 +31,8 @@ const styles = StyleSheet.create({
         flex:1,
         paddingTop:Constants.statusBarHeight,
         backgroundColor:'white'
+    },
+    slider:{
+        marginVertical:0,
     }
 })

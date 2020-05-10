@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomTab from './bottomTabs';
-import Header from '../componets/header';
+
 
 const Stack = createStackNavigator();
 
