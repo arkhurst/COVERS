@@ -53,7 +53,8 @@ const BottomTab = () => {
                    tabBarLabel:'Settings',
                    tabBarIcon:({focused}) => (
                        <MaterialIcons name="settings" size={28} color={focused ? 'black':'grey'} />
-                   )
+                   ),
+                   
                }}
             />
         </Tab.Navigator>
