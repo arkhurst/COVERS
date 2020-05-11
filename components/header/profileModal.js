@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
         borderWidth:StyleSheet.hairlineWidth,
         height:50,
         marginVertical:10,
-        borderColor:'grey',
+        borderColor:'#dedede',
         paddingHorizontal:20
     },
     countryContainer:{

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet, View, Dimensions, Button} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
 import Modal from 'react-native-modalbox';
 import ProfileModal from './profileModal';
+import { Notification } from '../../data/data'
 
 
 const { width, height } =Dimensions.get('window');
@@ -25,6 +26,16 @@ const Header = (props) =>{
         setVisible(!visible);
       };
 
+    const MessageList = ({message,sentAt}) => {
+        return(
+            <View style={{borderBottomWidth:0.8, borderColor:'#dedede'}}>
+                <View style={styles.messageList}>
+                    <Text style={styles.mainText} >{message}</Text>
+                    <Text style={styles.mainText}>{sentAt}</Text>
+                </View>
+            </View>
+        )
+    }  
  
 
     return(
@@ -48,6 +59,13 @@ const Header = (props) =>{
                   swipeToClose={true}>
                       <View style={styles.notsContainer}>
                         <Text style={styles.notsTitle}>Notifications</Text>
+                        <FlatList 
+                           data={Notification}
+                           renderItem={({item}) => (
+                            <MessageList {...item} />
+                           )}
+                           keyExtractor={(item) => item.id.toString()}
+                        />
                       </View>
                 </Modal>
             </TouchableOpacity>
@@ -89,14 +107,24 @@ const styles = StyleSheet.create({
         elevation:4
     },
     notsContainer:{
-        paddingTop:20
+        paddingTop:20,
+        marginHorizontal:20
     },
     notsTitle:{
         fontFamily:'AirbnbCereal-Bold',
         letterSpacing:-0.6,
         fontSize:16,
         textAlign:'center'
-    }
+    },
+    messageList:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        marginVertical:30,
+    },
+    mainText:{
+        fontFamily:'AirbnbCereal-Book',
+        letterSpacing:-0.2
+    },
 })
 
 export default Header;

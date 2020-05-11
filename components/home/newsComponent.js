@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
         paddingTop:40
     },
     border:{
-        borderBottomWidth:StyleSheet.hairlineWidth, 
-        borderColor:'grey'
+        borderBottomWidth:1.4, borderColor:'#dedede'
     },
     headerText:{
         fontSize:15,

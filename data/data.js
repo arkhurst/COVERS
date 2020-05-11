@@ -36,3 +36,21 @@ export const News = [
         body:"Body text"
     }
 ]
+
+export const Notification  = [
+    {
+        id:1,
+        message:'Stay at home',
+        sentAt:'2 days ago'
+    },
+    {
+        id:2,
+        message:'Stay at home',
+        sentAt:'2 days ago'
+    },
+    {
+        id:3,
+        message:'Stay at home',
+        sentAt:'2 days ago'
+    },
+]
