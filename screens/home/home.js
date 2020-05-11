@@ -27,7 +27,7 @@ export default function HomeScreen(){
              </View>
              <View style={styles.bodyContainer}>
                 <Text style={styles.headerText}>Ghana's Situation Updates</Text>
-                <Text style={{fontSize:11, color:'grey', fontWeight:'bold'}}>Last updated : 4/04/2020</Text>
+                <Text style={styles.updatedTime}>Last updated : 4/04/2020</Text>
                {/* News Items */}
                 <FlatList 
                   scrollEnabled={false}
@@ -53,7 +53,14 @@ const styles = StyleSheet.create({
         marginHorizontal:15,
     },
     headerText:{
-        fontWeight:'bold',
-        fontSize:14
+        fontSize:15,
+        fontFamily:'AirbnbCereal-Bold',
+        letterSpacing:-0.8   
+    },
+    updatedTime:{
+        fontSize:11, 
+        color:'grey',  
+        fontFamily:'AirbnbCereal-Bold',
+        letterSpacing:-0.8 
     }
 })

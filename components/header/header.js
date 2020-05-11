@@ -65,7 +65,8 @@ const styles = StyleSheet.create({
     },
     headerTitle:{
         fontSize:30,
-        fontWeight:'bold'
+        fontFamily:'AirbnbCereal-Bold',
+        letterSpacing:-0.6  ,
     },
 
     modal:{

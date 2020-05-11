@@ -28,13 +28,15 @@ const styles = StyleSheet.create({
         top:35,
         color:'#fff',
         fontSize:30,
-        fontWeight:'bold'
+        fontFamily:'AirbnbCereal-Bold',
+        letterSpacing:-0.8  
     },
     status:{
         position:'absolute',
         right:30,
         top:75,
         color:'#fff',
-        fontWeight:'bold'
+        fontFamily:'AirbnbCereal-Bold',
+        letterSpacing:-0.8   
     }
 })

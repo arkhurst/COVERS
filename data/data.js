@@ -3,7 +3,7 @@ export const Slider = [
         id:1,
         status:'Confirmed Cases',
         number:3061,
-        image:require('../assets/COVERS.jpg')
+        image:require('../assets/virus.png')
     },
     {
         id:2,
