@@ -38,8 +38,17 @@ const Header = (props) =>{
             </View>
             <TouchableOpacity style={styles.icon} onPress={open} >
                 <FontAwesome name='bell-o' size={30} color="black" />
-                <Modal animationDuration={1000} style={styles.modal} onClosed={() => setIsOpen(false)} coverScreen={true} isOpen={isOpen} swipeToClose={true}>
-                   <Text>Testing</Text>
+                {/* Notification Animation */}
+                <Modal 
+                  animationDuration={1000} 
+                  style={styles.modal} 
+                  onClosed={() => setIsOpen(false)} 
+                  coverScreen={true} 
+                  isOpen={isOpen} 
+                  swipeToClose={true}>
+                      <View style={styles.notsContainer}>
+                        <Text style={styles.notsTitle}>Notifications</Text>
+                      </View>
                 </Modal>
             </TouchableOpacity>
         </View>
@@ -78,6 +87,15 @@ const styles = StyleSheet.create({
         shadowOffset: {x:0, y:1},
         shadowOpacity:0.5,
         elevation:4
+    },
+    notsContainer:{
+        paddingTop:20
+    },
+    notsTitle:{
+        fontFamily:'AirbnbCereal-Bold',
+        letterSpacing:-0.6,
+        fontSize:16,
+        textAlign:'center'
     }
 })
 
