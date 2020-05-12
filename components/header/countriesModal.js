@@ -20,7 +20,7 @@ const ListCountries = (props) => {
     )
 }
 
-export default function CountriesModal({visible, close, loading, data, selectCountry1}){
+export default function CountriesModal({visible, close, loading, data, selectCountry}){
     return(
         <Modal visible={visible} animationType={'slide'} >
             <View style={styles.container}>
@@ -40,12 +40,11 @@ export default function CountriesModal({visible, close, loading, data, selectCou
                                     data={item} 
                                     {...item} 
                                     selected={data => {
-                                        selectCountry1(data)
-                                        close()
+                                        selectCountry(data)
                                     }}
                                 />)}
                               data={data.countries}
-                              keyExtractor={(index, item) => index.toString()}
+                              keyExtractor={(index, item) => item.country}
                             />
                         )}
                      </View>   

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, StyleSheet, Image } from 'react-native';
+import { View, Text, Modal, StyleSheet, Image, KeyboardAvoidingView } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
@@ -22,10 +22,11 @@ export default function ProfileModal({visible, cancel}){
           flag: 'https://corona.lmao.ninja/assets/img/flags/gh.png',
         }
     })
-
+    const [showModal, setModal] = useState(false)
+    const [check, setCheck] = useState(0)
     const { loading, data } = useQuery(getCountry)
 
-    const [showModal, setModal] = useState(false)
+  
     // Radio Button data
     const rbData = [
         {
@@ -37,18 +38,25 @@ export default function ProfileModal({visible, cancel}){
     ]
 
     // open modal
-    function open(){
+    function open(value){
         setModal(true)
+        setCheck(value)
     }
 
     function close(){
         setModal(false)
     }
 
-    function selectCountry1(data){
-       setCountry1(data)
+    function selectCountry(data){
+        if(check === 1){
+         setCountry1(data)
+        }else{
+            setCountry2(data)
+        }
+      setModal(false)
     }
     return(
+        <KeyboardAvoidingView behavior="padding" >
         <Modal visible={visible} presentationStyle={'pageSheet'} animationType={'slide'} >
             <View style={styles.container}>
                 <View style={styles.header}>
@@ -89,19 +97,19 @@ export default function ProfileModal({visible, cancel}){
                           <Text style={styles.mainTitle}>Travel History</Text>
                           <Text style={styles.mainText}>Select the last two countries you visited (If Applicable)</Text>
                           <View style={styles.countryContainer}>
-                             <TouchableOpacity onPress={open} style={styles.selectCountry}>
+                             <TouchableOpacity onPress={() => open(1)} style={styles.selectCountry}>
                                 <Image style={styles.flag} source={{uri: country1?.countryInfo?.flag||'N/A'}} />
                                 <View style={{marginVertical:5}}>
                                   <Text style={styles.mainText}>{country1?.country||'N/A'}</Text>
                                 </View>
                              </TouchableOpacity>
-                             <TouchableOpacity onPress={open} style={styles.selectCountry}>
+                             <TouchableOpacity onPress={() => open(2)} style={styles.selectCountry}>
                              <Image style={styles.flag} source={{uri: country2?.countryInfo?.flag||'N/A'}} />
                                 <View style={{marginVertical:5}}>
                                     <Text style={styles.mainText}>{country2?.country||'N/A'}</Text>
                                 </View>
                              </TouchableOpacity>
-                             <CountriesModal selectCountry1={selectCountry1} loading={loading} data={data} visible={showModal} close={close} />
+                             <CountriesModal selectCountry={selectCountry} loading={loading} data={data} visible={showModal} close={close} />
                           </View>
                     </View>
                     {/* Medical professional */}
@@ -120,6 +128,7 @@ export default function ProfileModal({visible, cancel}){
                 </View>
             </View>
         </Modal>
+        </KeyboardAvoidingView>
     );
 };
 

@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         marginHorizontal:10,
         marginVertical:20,
+    
     },
     number:{
         position:'absolute',
