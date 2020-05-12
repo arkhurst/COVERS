@@ -7,7 +7,7 @@ import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
 const ListCountries = (props) => {
     return(
         <View style={styles.listContainer}>
-          <TouchableOpacity  style={styles.items}>
+          <TouchableOpacity onPress={() => props.selected(props.data)} style={styles.items}>
             <Image
             style={{ width: 40, height: 40, borderRadius: 20 }}
             source={{ uri: props.countryInfo.flag }}
@@ -20,7 +20,7 @@ const ListCountries = (props) => {
     )
 }
 
-export default function CountriesModal({visible, close, loading, data}){
+export default function CountriesModal({visible, close, loading, data, selectCountry1}){
     return(
         <Modal visible={visible} animationType={'slide'} >
             <View style={styles.container}>
@@ -35,7 +35,15 @@ export default function CountriesModal({visible, close, loading, data}){
                     <View>
                         {data &&(
                             <FlatList
-                              renderItem={({item}) => <ListCountries {...item} />}
+                              renderItem={({item}) => (
+                                 <ListCountries 
+                                    data={item} 
+                                    {...item} 
+                                    selected={data => {
+                                        selectCountry1(data)
+                                        close()
+                                    }}
+                                />)}
                               data={data.countries}
                               keyExtractor={(index, item) => index.toString()}
                             />

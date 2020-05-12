@@ -45,6 +45,9 @@ export default function ProfileModal({visible, cancel}){
         setModal(false)
     }
 
+    function selectCountry1(data){
+       setCountry1(data)
+    }
     return(
         <Modal visible={visible} presentationStyle={'pageSheet'} animationType={'slide'} >
             <View style={styles.container}>
@@ -98,7 +101,7 @@ export default function ProfileModal({visible, cancel}){
                                     <Text style={styles.mainText}>{country2?.country||'N/A'}</Text>
                                 </View>
                              </TouchableOpacity>
-                             <CountriesModal loading={loading} data={data} visible={showModal} close={close} />
+                             <CountriesModal selectCountry1={selectCountry1} loading={loading} data={data} visible={showModal} close={close} />
                           </View>
                     </View>
                     {/* Medical professional */}
