@@ -3,10 +3,16 @@ import { Platform, StatusBar, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 import StackNavigator from './navigation/stackNavigator';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
+
+  const client = new ApolloClient({
+    uri: "https://covid19-graphql.netlify.app/"
+  })
 
   async function loadResourceAsync(){
     await Promise.all([
@@ -41,10 +47,12 @@ export default function App(props) {
     )
   }else{
     return(
+     <ApolloProvider client={client} >
       <NavigationContainer>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}   
          <StackNavigator />
       </NavigationContainer>
+      </ApolloProvider> 
     )
   }
 

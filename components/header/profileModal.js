@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Modal, StyleSheet, Keyboard } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
 import RadioButtonRN from 'radio-buttons-react-native';
+import { useQuery } from '@apollo/react-hooks';
+import { getCountry } from '../../queries/queries';
+import CountriesModal from './countriesModal';
 
 export default function ProfileModal({visible, cancel}){
 
-    const data = [
+    const [country1, setCountry1] = useState({
+        country: 'Ghana',
+        countryInfo: {
+          flag: 'https://corona.lmao.ninja/assets/img/flags/gh.png',
+        }
+    });
+    const [country2, setCountry2] = useState({
+        country: 'Ghana',
+        countryInfo: {
+          flag: 'https://corona.lmao.ninja/assets/img/flags/gh.png',
+        }
+    })
+
+    const { loading, data } = useQuery(getCountry)
+
+    const [showModal, setModal] = useState(false)
+    // Radio Button data
+    const rbData = [
         {
         label:'Male'
         },
@@ -16,10 +36,15 @@ export default function ProfileModal({visible, cancel}){
        }
     ]
 
-    // hide keypad on iOS
-    // function hide(){
-    //     Keyboard.dismiss()
-    // }
+    // open modal
+    function open(){
+        setModal(true)
+    }
+
+    function close(){
+        setModal(false)
+    }
+
     return(
         <Modal visible={visible} presentationStyle={'pageSheet'} animationType={'slide'} >
             <View style={styles.container}>
@@ -39,7 +64,7 @@ export default function ProfileModal({visible, cancel}){
                     {/* Radio buttons */}
                     <View>
                         <RadioButtonRN 
-                          data={data}
+                          data={rbData}
                           animationTypes={['shake']}
                           circleSize={16}
                           initial={3}
@@ -61,12 +86,13 @@ export default function ProfileModal({visible, cancel}){
                           <Text style={styles.mainTitle}>Travel History</Text>
                           <Text style={styles.mainText}>Select the last two countries you visited (If Applicable)</Text>
                           <View style={styles.countryContainer}>
-                             <TouchableOpacity style={styles.selectCountry}>
+                             <TouchableOpacity onPress={open} style={styles.selectCountry}>
 
                              </TouchableOpacity>
-                             <TouchableOpacity style={styles.selectCountry}>
+                             <TouchableOpacity onPress={open} style={styles.selectCountry}>
 
                              </TouchableOpacity>
+                             <CountriesModal visible={showModal} close={close} />
                           </View>
                     </View>
                     {/* Medical professional */}
