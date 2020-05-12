@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     },
     notsContainer:{
         paddingTop:20,
-        marginHorizontal:20
+        marginHorizontal:25
     },
     notsTitle:{
         fontFamily:'AirbnbCereal-Bold',

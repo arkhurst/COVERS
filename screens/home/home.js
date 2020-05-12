@@ -10,8 +10,8 @@ import NewsComponent from '../../components/home/newsComponent';
 export default function HomeScreen(){
     return(
         <View style={styles.container}>
-            <Header>
-                <Text>Home</Text>
+          <Header>
+           <Text>Home</Text>
             </Header>
             <ScrollView>
             {/* Slider Items */}
