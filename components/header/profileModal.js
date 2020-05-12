@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, StyleSheet, Keyboard } from 'react-native';
+import { View, Text, Modal, StyleSheet, Image } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
@@ -87,12 +87,18 @@ export default function ProfileModal({visible, cancel}){
                           <Text style={styles.mainText}>Select the last two countries you visited (If Applicable)</Text>
                           <View style={styles.countryContainer}>
                              <TouchableOpacity onPress={open} style={styles.selectCountry}>
-
+                                <Image style={styles.flag} source={{uri: country1?.countryInfo?.flag||'N/A'}} />
+                                <View style={{marginVertical:5}}>
+                                  <Text style={styles.mainText}>{country1?.country||'N/A'}</Text>
+                                </View>
                              </TouchableOpacity>
                              <TouchableOpacity onPress={open} style={styles.selectCountry}>
-
+                             <Image style={styles.flag} source={{uri: country2?.countryInfo?.flag||'N/A'}} />
+                                <View style={{marginVertical:5}}>
+                                    <Text style={styles.mainText}>{country2?.country||'N/A'}</Text>
+                                </View>
                              </TouchableOpacity>
-                             <CountriesModal visible={showModal} close={close} />
+                             <CountriesModal loading={loading} data={data} visible={showModal} close={close} />
                           </View>
                     </View>
                     {/* Medical professional */}
@@ -162,12 +168,18 @@ const styles = StyleSheet.create({
         borderRadius:10,
         borderWidth:1.5,
         marginHorizontal:5,
-        borderColor:'grey'
+        borderColor:'grey',
+        justifyContent:'center',
+        alignItems:'center',
     },
     button:{
         backgroundColor:'black',
         justifyContent:'center',
         alignItems:'center',
         height:52
+    },
+    flag:{
+        width:40,
+        height:25,
     }
 })
