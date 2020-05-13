@@ -33,4 +33,34 @@ const getCountry = gql`
 
 `;
 
-export {getCountry}
+const getGlobal = gql`
+query{
+    globalTotal {
+        affectedCountries
+        tests
+        cases
+        todayCases
+        deaths
+        todayDeaths
+        recovered
+        active
+        critical
+        casesPerOneMillion
+        deathsPerOneMillion
+        testsPerOneMillion
+        updated
+    }
+  }
+  
+`
+const getGhana = gql`
+query {
+    countries {
+        country(country:"Ghana")
+        
+    }
+}
+
+`
+
+export { getCountry, getGlobal, getGhana }
