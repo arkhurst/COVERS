@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, StyleSheet, Image, KeyboardAvoidingView } from 'react-native';
+import { 
+    View, 
+    Text,
+    Modal, 
+    StyleSheet, 
+    Image, 
+    KeyboardAvoidingView, 
+    ActivityIndicator, 
+    Alert } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
@@ -25,6 +33,7 @@ export default function ProfileModal({visible, cancel}){
     const [showModal, setModal] = useState(false)
     const [check, setCheck] = useState(0)
     const { loading, data } = useQuery(getCountry)
+    const [load, setLoad ] = useState(false)
 
   
     // Radio Button data
@@ -54,6 +63,20 @@ export default function ProfileModal({visible, cancel}){
             setCountry2(data)
         }
       setModal(false)
+    }
+ 
+    function updateProfile(){
+        setLoad(true)
+        setTimeout(() => {
+            setLoad(false)
+            Alert.alert(
+                "Success",
+                "Profile Updated",
+                [{ text: "OK", onPress: () => console.log("OK Pressed") }]
+              
+              );
+        },2000)
+        
     }
     return(
         <KeyboardAvoidingView behavior="padding" >
@@ -122,8 +145,13 @@ export default function ProfileModal({visible, cancel}){
                        </View>
                     </View>
                     {/* Button */}
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity onPress={updateProfile} style={styles.button}>
+                        {load ? (
+                            <ActivityIndicator />
+                        ):(
                           <Text style={[styles.mainText],{color:'white'}}>Update Profile</Text>
+                        )}
+                          
                     </TouchableOpacity>
                 </View>
             </View>
