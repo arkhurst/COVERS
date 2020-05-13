@@ -5,6 +5,7 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
+import { GlobalProvider } from './context/GlobalState';
 import StackNavigator from './navigation/stackNavigator';
 
 export default function App(props) {
@@ -48,10 +49,12 @@ export default function App(props) {
   }else{
     return(
      <ApolloProvider client={client} >
+       <GlobalProvider>
       <NavigationContainer>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}   
          <StackNavigator />
       </NavigationContainer>
+      </GlobalProvider>
       </ApolloProvider> 
     )
   }
