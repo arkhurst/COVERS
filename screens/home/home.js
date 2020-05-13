@@ -7,18 +7,19 @@ import Constants from 'expo-constants';
 import Header from '../../components/header/header';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import {  News } from '../../data/data';
-import { getCountry } from '../../queries/queries';
+import { getGhana } from '../../queries/queries';
+import { covertDateTime } from '../../constants/constants'
 import SliderComponent from '../../components/home/sliderComponent';
 import NewsComponent from '../../components/home/newsComponent';
 
 const { width, height } = Dimensions.get('window');
 export default function HomeScreen(){
 
-    const { loading, data } = useQuery(getCountry)
-   console.log(data)
+    const { loading, data } = useQuery(getGhana)
+      console.log(data)
     if(loading){
         return (
-            <View style={{ paddingTop:Constants.statusBarHeight}}>
+            <View style={{flex:1, paddingTop:Constants.statusBarHeight, backgroundColor:'white'}}>
                 <View style={{marginTop:height/2.8}}>
                  <ActivityIndicator size="large" />
                 </View>
@@ -34,11 +35,11 @@ export default function HomeScreen(){
             <ScrollView>
             {/* Slider Items */}
              <View>
-              <SliderComponent data={data} />
+              <SliderComponent data={data}  />
              </View>
              <View style={styles.bodyContainer}>
                 <Text style={styles.headerText}>Ghana's Situation Updates</Text>
-                <Text style={styles.updatedTime}>Last updated : 4/04/2020</Text>
+                <Text style={styles.updatedTime}>Last updated : {covertDateTime(data?.result?.updated)}</Text>
                {/* News Items */}
                 <FlatList 
                   scrollEnabled={false}
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
     },
     bodyContainer:{
         marginHorizontal:15,
+        paddingTop:10
     },
     headerText:{
         fontSize:15,

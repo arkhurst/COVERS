@@ -55,11 +55,18 @@ query{
 `
 const getGhana = gql`
 query {
-    countries {
-        country(country:"Ghana")
+        country(name:"Ghana"){
+            country
+            result{
+                cases
+                recovered
+                deaths
+                updated
+            }
+        }
         
     }
-}
+
 
 `
 
