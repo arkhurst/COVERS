@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Text, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
 import Header from '../../components/header/header';
 import LottieView from 'lottie-react-native';
 import * as reportAnim from '../../assets/lottie/reports.json';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import ReportModal from './reportModal';
 
 const { width, height } = Dimensions.get('window');
 
 export default function ReportScreen(){
+
+    const [visible, setVisible] = useState(false)
+
+    function open(){
+        setVisible(true)
+    }
+    function close(){
+        setVisible(false)
+    }
     return(
         <View style={styles.container}>
             <Header>
@@ -20,8 +30,9 @@ export default function ReportScreen(){
                 </View>
                 <View style={{paddingTop:60, justifyContent:'space-between', alignItems:'center'}}>
                 <Text style={styles.mainText}>You have not made any case report</Text>
-                <TouchableOpacity style={styles.button} >
+                <TouchableOpacity onPress={open} style={styles.button} >
                      <Text style={styles.mainText}>Make Case Report</Text>
+                     <ReportModal visible={visible} close={close} />
                 </TouchableOpacity>
                 </View>    
             </View>

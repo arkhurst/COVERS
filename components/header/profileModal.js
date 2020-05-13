@@ -38,12 +38,8 @@ export default function ProfileModal({visible, cancel}){
   
     // Radio Button data
     const rbData = [
-        {
-        label:'Male'
-        },
-        {
-        label:'Female'
-       }
+        {label:'Male' },
+        {label:'Female'}
     ]
 
     // open modal
