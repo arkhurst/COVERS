@@ -66,8 +66,6 @@ query {
         }
         
     }
-
-
 `
 
 export { getCountry, getGlobal, getGhana }

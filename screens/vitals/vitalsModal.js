@@ -1,39 +1,40 @@
 import React from 'react';
-import {View, Text ,Modal, StyleSheet} from 'react-native';
+import { View, Text, Modal, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Constants from 'expo-constants';
 
-
-export default function VitalsModal({close, visible}){
-    return(
-        <Modal visible={visible} animationType="slide" presentationStyle={'pageSheet'} >
-            <View style={styles.container}>
-               <View style={styles.header}>
-                  <Text style={styles.headerTitle}>Log Symptoms</Text>
-                  <TouchableOpacity onPress={close}>
-                    <Ionicons name="ios-close" size={40} />
-                  </TouchableOpacity>
-                </View>
-            </View>
-        </Modal>
-    );
-};
+export default function VitalsModal({ close, visible }) {
+  return (
+    <Modal
+      visible={visible}
+      animationType="slide"
+      presentationStyle={'pageSheet'}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>Log Symptoms</Text>
+          <TouchableOpacity onPress={close}>
+            <Ionicons name="ios-close" size={40} />
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+}
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        marginTop:Constants.statusBarHeight,
-        paddingHorizontal:20
-    },
-    header:{
-        flexDirection:'row',
-        justifyContent:'space-between'
-     },
-     headerTitle:{
-        fontFamily:'AirbnbCereal-Bold',
-        letterSpacing:-0.2,
-        fontSize:32
-    },
-    
-})
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    paddingHorizontal: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  headerTitle: {
+    fontFamily: 'AirbnbCereal-Bold',
+    letterSpacing: -0.2,
+    fontSize: 32,
+  },
+});

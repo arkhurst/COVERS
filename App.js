@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Platform, StatusBar, View} from 'react-native';
+import { Platform, StatusBar, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
@@ -12,10 +12,10 @@ export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   const client = new ApolloClient({
-    uri: "https://covid19-graphql.netlify.app/"
-  })
+    uri: 'https://covid19-graphql.netlify.app/',
+  });
 
-  async function loadResourceAsync(){
+  async function loadResourceAsync() {
     await Promise.all([
       Font.loadAsync({
         // fonts used
@@ -25,39 +25,37 @@ export default function App(props) {
         'AirbnbCereal-Bold': require('./assets/fonts/AirbnbCereal-Bold.ttf'),
         'AirbnbCereal-Medium': require('./assets/fonts/AirbnbCereal-Medium.ttf'),
         'AirbnbCereal-Book': require('./assets/fonts/AirbnbCereal-Book.ttf'),
-      })
-    ])
+      }),
+    ]);
   }
 
-  function handleLoadingError(error){
+  function handleLoadingError(error) {
     // show error
-    console.log(error)
+    console.log(error);
   }
 
-  function handleFinishLoading(setLoadingComplete){
-    setLoadingComplete(true)
+  function handleFinishLoading(setLoadingComplete) {
+    setLoadingComplete(true);
   }
 
-  if(!isLoadingComplete && !props.skipLoadingScreen){
-    return(
-      <AppLoading 
+  if (!isLoadingComplete && !props.skipLoadingScreen) {
+    return (
+      <AppLoading
         startAsync={loadResourceAsync}
         onError={handleLoadingError}
         onFinish={() => handleFinishLoading(setLoadingComplete)}
       />
-    )
-  }else{
-    return(
-     <ApolloProvider client={client} >
-       <GlobalProvider>
-      <NavigationContainer>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}   
-         <StackNavigator />
-      </NavigationContainer>
-      </GlobalProvider>
-      </ApolloProvider> 
-    )
+    );
+  } else {
+    return (
+      <ApolloProvider client={client}>
+        <GlobalProvider>
+          <NavigationContainer>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            <StackNavigator />
+          </NavigationContainer>
+        </GlobalProvider>
+      </ApolloProvider>
+    );
   }
-
 }
-
