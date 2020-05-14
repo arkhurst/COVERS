@@ -23,7 +23,7 @@ export default function ProfileModal({ visible, cancel }) {
     countryInfo: {
       flag: 'https://corona.lmao.ninja/assets/img/flags/gh.png',
     },
-  });
+  }); 
   const [country2, setCountry2] = useState({
     country: 'Ghana',
     countryInfo: {
