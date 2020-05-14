@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, Text, Modal, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Constants from 'expo-constants';
+import LogSymptoms from '../../components/vitals/logSymptoms';
 
 export default function VitalsModal({ close, visible }) {
+
+ 
   return (
     <Modal
       visible={visible}
@@ -17,6 +20,7 @@ export default function VitalsModal({ close, visible }) {
             <Ionicons name="ios-close" size={40} />
           </TouchableOpacity>
         </View>
+        <LogSymptoms />
       </View>
     </Modal>
   );
@@ -25,7 +29,7 @@ export default function VitalsModal({ close, visible }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
     paddingHorizontal: 20,
   },
   header: {

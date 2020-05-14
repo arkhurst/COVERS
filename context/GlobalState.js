@@ -3,6 +3,13 @@ import AppReducer from './AppReducer';
 
 const initialState = {
   reports: [],
+  symptoms:[
+    {id:1, sign:'None', value:0, selected:true},
+    {id:2, sign:'Mild', value:1, selected:false},
+    {id:3, sign:'Mid', value:2, selected:false},
+    {id:4, sign:'Semi', value:3, selected:false},
+    {id:5, sign:'High', value:4, selected:false}
+  ]
 };
 
 // create context
@@ -30,6 +37,7 @@ export const GlobalProvider = ({ children }) => {
         reports: state.reports,
         removeCaseReport,
         makeCaseReport,
+        symptoms:state.symptoms
       }}>
       {children}
     </GlobalContext.Provider>

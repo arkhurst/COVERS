@@ -45,7 +45,7 @@ export default function CountriesModal(props) {
             <ActivityIndicator />
           </View>
         ) : (
-          <View>
+          <View> 
          {/* Show countries */}
             {data && (
               <FlatList

@@ -1,14 +1,18 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function NewsComponent({ title, body }) {
+export default function NewsComponent({ title, body,image }) {
   return (
     <View style={styles.newsContainer}>
-      <View style={styles.border}>
-        <Text style={styles.headerText}>{title}</Text>
+      <View>
+        <Image style={styles.image} source={image} />
       </View>
       <View style={styles.newsBody}>
-        <Text style={styles.bodyText}>{body}</Text>
+        <Text style={styles.headerText}>{title}</Text>
+        <TouchableOpacity>
+          <Text style={styles.bodyText}>View article</Text>
+        </TouchableOpacity>  
       </View>
     </View>
   );
@@ -16,8 +20,15 @@ export default function NewsComponent({ title, body }) {
 
 const styles = StyleSheet.create({
   newsContainer: {
-    marginHorizontal: 20,
-    paddingTop: 40,
+    marginVertical:10,
+    marginHorizontal: 13,
+    backgroundColor:'white',
+    shadowColor: 'grey',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.2,
+    flexDirection:'row',
+    height:130
   },
   border: {
     borderBottomWidth: 1.4,
@@ -30,10 +41,17 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   newsBody: {
-    marginTop: 15,
+    justifyContent:'space-between',
+    paddingVertical:5,
+    paddingHorizontal:8
   },
   bodyText: {
-    fontFamily: 'AirbnbCereal-Book',
-    letterSpacing: -0.7,
+    fontFamily: 'AirbnbCereal-Bold',
+    letterSpacing: -0.3,
+    color:"#00a4f3"
   },
+  image:{
+    height:130,
+    width:160
+  }
 });

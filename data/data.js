@@ -2,18 +2,27 @@
 export const News = [
     {
         id:1,
-        title:"Confirmed COVID-19 Cases In Ghana As At\n25th March 2020, 09:00HR",
-        body:"Body text"
+        title:"32 nurses and midwives test\npositive for COVID-19",
+        body:"Body text",
+        image:require('../assets/nurses.jpg')
     },
     {
         id:2,
-        title:"Confirmed COVID-19 Cases In Ghana As At\n25th March 2020, 09:00HR",
-        body:"Body text"
+        title:"Upper East Police\nawait coronavirus results",
+        body:"Body text",
+        image:require('../assets/police.jpg')
     },
     {
         id:3,
-        title:"Confirmed COVID-19 Cases In Ghana As At\n25th March 2020, 09:00HR",
-        body:"Body text"
+        title:"Govt begins post-COVID\nsafety measures",
+        body:"Body text",
+        image:require('../assets/govt.jpg')
+    },
+    {
+        id:4,
+        title:"Airline industry\noutlines new norms",
+        body:"Body text",
+        image:require('../assets/airline.jpg')
     }
 ]
 
