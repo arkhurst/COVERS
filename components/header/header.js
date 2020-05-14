@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'white',
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: 'grey',
+    borderColor: '#dedede',
     justifyContent: 'space-between',
     height: height * 0.14,
     paddingHorizontal: 20,

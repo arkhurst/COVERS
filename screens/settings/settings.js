@@ -8,6 +8,8 @@ import AssessmentModal from './modals/assessmentModal';
 import FAQModal from './modals/FAQModal';
 import TestinCenters from './modals/testingCenter';
 import ProfileModal from '../../components/header/profileModal';
+import Audio from './modals/audio';
+import Share from './modals/share';
 
 
 export default function SettingsScreen(){
@@ -16,6 +18,8 @@ export default function SettingsScreen(){
     const [showFAQ, setFAQ] = useState(false)
     const [showTesting, setTesting] = useState(false)
     const [showProfile, setProfile] = useState(false)
+    const [showAudio, setAudio] = useState(false)
+    const [showShare, setShare] = useState(false)
 
     function open(value){
          if(value === 1){
@@ -24,6 +28,10 @@ export default function SettingsScreen(){
            return setFAQ(true)
         }else if (value === 3 ){
             return setTesting(true)
+        } else if (value === 4){
+            return setAudio(true)
+        } else if (value === 5 ){
+            return setShare(true)
         }else {
             return setProfile(true)
         }
@@ -36,6 +44,10 @@ export default function SettingsScreen(){
           return setFAQ(false)
        }else if (value === 3){
            return setTesting(false)
+       } else if (value === 4){
+           return setAudio(false)
+       }  else if (value ===5){
+           return setShare(false)
        }else{
            return setProfile(false)
        }
@@ -71,6 +83,15 @@ export default function SettingsScreen(){
                 <ProfileModal visible={showProfile} cancel={close} />
             </TouchableOpacity>
             {/* Audio */}
+            <TouchableOpacity  onPress={() => open(4)}>
+                <SettingsCard title="Audio" body="Listen to audio" />
+                <Audio visible={showAudio} close={close} />
+            </TouchableOpacity>
+            {/* Share */}
+            <TouchableOpacity  onPress={() => open(5)}>
+                <SettingsCard title="Share" body="Share the app with friends a family" />
+                <Share visible={showShare} close={close} />
+            </TouchableOpacity>
         </View>
     );
 };
