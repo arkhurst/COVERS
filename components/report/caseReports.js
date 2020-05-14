@@ -1,9 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import FAB from 'react-native-fab';
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { useIsFocused } from '@react-navigation/native';
 import { covertDateTime } from '../../constants/constants';
+import ReportModal from '../../screens/report/reportModal';
+import { height} from '../../constants/constants'
 
-export default function CaseReports({ reportFor, contact, description, date }) {
+export default function CaseReports({reportFor, contact, description, date }) {
+
+  const [visible, setVisible] = useState(false);
+  const isFocused = useIsFocused();
+  
+  function open() {
+    setVisible(true);
+  }
+  function close() {
+    setVisible(false);
+  }
   return (
+   <View>
     <View style={styles.container}>
       <View
         style={{
@@ -17,6 +33,15 @@ export default function CaseReports({ reportFor, contact, description, date }) {
       <Text style={styles.book}>{description}</Text>
       <Text style={styles.book}>{contact}</Text>
     </View>
+              <FAB
+                 onClickAction={() => setVisible(true)}
+                 style={{position: 'absolute',width: 65,height: 65, top:height*0.58  }}
+                 buttonColor="black"
+                 iconTextColor="#FFFFFF"
+                 visible={isFocused}
+                 iconTextComponent={<Ionicons name="ios-add" />}  />
+               <ReportModal visible={visible} close={close} />
+            </View>
   );
 }
 

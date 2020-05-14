@@ -30,7 +30,7 @@ export default function ReportScreen() {
     <View style={styles.container}>
       <Header>
         <Text>Case Report</Text>
-      </Header>
+      </Header> 
       {/* Check if reports has items */}
       {reports.length > 0 ? (
       
@@ -38,14 +38,6 @@ export default function ReportScreen() {
           {reports.map(report => (
              <View>
               <CaseReports key={report.id} {...report} />
-              <FAB
-                 onClickAction={() => setVisible(true)}
-                 style={{position: 'absolute',width: 65,height: 65, top:height*0.58  }}
-                 buttonColor="black"
-                 iconTextColor="#FFFFFF"
-                 visible={isFocused}
-                 iconTextComponent={<Ionicons name="ios-add" />}  />
-               <ReportModal visible={visible} close={close} />
             </View>
           ))}
         </View>
