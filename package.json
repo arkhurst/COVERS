@@ -16,7 +16,7 @@
     "apollo-boost": "^0.4.8",
     "expo": "~37.0.3",
     "graphql": "^15.0.0",
-    "lottie-react-native": "^3.3.2",
+    "lottie-react-native": "~2.6.1",
     "moment": "^2.25.3",
     "numeral": "^2.0.6",
     "radio-buttons-react-native": "^1.0.4",

@@ -6,13 +6,9 @@ import Constants from 'expo-constants';
 import LogSymptoms from '../../components/vitals/logSymptoms';
 
 export default function VitalsModal({ close, visible }) {
-
  
   return (
-    <Modal
-      visible={visible}
-      animationType="slide"
-      presentationStyle={'pageSheet'}>
+    <Modal  visible={visible} animationType="slide" presentationStyle={'pageSheet'}>
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Log Symptoms</Text>
