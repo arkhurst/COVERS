@@ -1,18 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { View, Text, StyleSheet, ImageBackground, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ActivityIndicator } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { width } from '../../constants/constants'
-
+import { GlobalContext } from '../../context/GlobalState';
 
 export default function Onboarding({navigation}){
 
     const [phoneNumber, setphoneNumber] = useState("") 
     const [loading, setLoading ] = useState(false)
+
+    const { addPhoneNumber } = useContext(GlobalContext)
+
     function handleButton(){
         setLoading(true)
         setTimeout(() => {
-            navigation.navigate('Tabs')
+            navigation.navigate('Verification')
+            setLoading(false)
         },1500)
+       addPhoneNumber(phoneNumber)
     }
     return(  
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} style={styles.container}>
@@ -27,14 +32,14 @@ export default function Onboarding({navigation}){
                </View>
                {phoneNumber.length < 10 ? 
                     <View style={styles.initialButtonState}>
-                        <Text style={styles.mainText}>Get Started</Text>
+                        <Text style={styles.minorText}>Get Started</Text>
                     </View>
                :
                    <TouchableOpacity onPress={handleButton} style={styles.button}>
                        {loading ? (
                            <ActivityIndicator  color="white" />
                        ):(
-                         <Text style={styles.mainText}>Get Started</Text>
+                         <Text style={styles.minorText}>Get Started</Text>
                        )} 
                     </TouchableOpacity>
                 }       
@@ -91,14 +96,14 @@ const styles = StyleSheet.create({
         alignItems: "center", 
         height: 54, 
         width:width*0.8,
-        backgroundColor: "#9f9999"
+        backgroundColor: "#9f9f99"
       },
       button:{
          justifyContent: 'center', 
          alignItems: "center", 
          height: 54, 
          width:width*0.8,
-         backgroundColor: "#22b266",
+         backgroundColor: "#4cbd7a",
       },
       
 

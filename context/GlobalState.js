@@ -9,7 +9,8 @@ const initialState = {
     {id:3, sign:'Mid', value:2, selected:false},
     {id:4, sign:'Semi', value:3, selected:false},
     {id:5, sign:'High', value:4, selected:false}
-  ]
+  ],
+  phoneNumber:[]
 };
 
 // create context
@@ -31,13 +32,24 @@ export const GlobalProvider = ({ children }) => {
       payload: report,
     });
   }
+
+  function addPhoneNumber(phone){
+     dispatch({
+       type:'Add_Phone',
+       payload:phone
+     })
+  }
+  
   return (
     <GlobalContext.Provider
       value={{
         reports: state.reports,
         removeCaseReport,
         makeCaseReport,
-        symptoms:state.symptoms
+        symptoms:state.symptoms,
+        phoneNumber:state.phoneNumber,
+        addPhoneNumber,
+  
       }}>
       {children}
     </GlobalContext.Provider>
