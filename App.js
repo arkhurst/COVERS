@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Platform, StatusBar, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppLoading } from 'expo';
+import { Asset } from 'expo-asset'
 import * as Font from 'expo-font';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -17,6 +18,7 @@ export default function App(props) {
 
   async function loadResourceAsync() {
     await Promise.all([
+   
       Font.loadAsync({
         // fonts used
         'GoogleSans-Bold': require('./assets/fonts/GoogleSans-Bold.ttf'),
