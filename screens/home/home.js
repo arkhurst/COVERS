@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import LottieView from 'lottie-react-native';
-import * as load from '../../assets/lottie/loading.json';
+import * as load from '../../assets/lottie/loading2.json';
 import Constants from 'expo-constants';
 import Header from '../../components/header/header';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
@@ -21,32 +21,21 @@ import NewsComponent from '../../components/home/newsComponent';
 export default function HomeScreen() {
 
   
-  const { loading, data, error, refetch } = useQuery(getGhana);
+  const { loading, data, error } = useQuery(getGhana);
 
-  if (loading) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          paddingTop: Constants.statusBarHeight,
-          backgroundColor: 'white',
-        }}>
-        <View style={{ marginTop: height / 2.8 }}>
-          <ActivityIndicator size="large" />
-        </View>
-      </View>
-    );
-  }
   
-if(!loading || error) {
   return (
     <View style={styles.container}>
       <Header>
         <Text>Home</Text>
-      </Header>
-      <ScrollView>
-        {error}
-        
+      </Header> 
+      {loading ? (
+          <View style={{ justifyContent:'center', alignItems:'center'}}>
+          {/* <ActivityIndicator size="large" /> */}
+          <LottieView source={load} autoPlay loop style={styles.lottie} />
+        </View>
+      ):(
+        <ScrollView>
         {/* Slider Items */}
         <View>
           <SliderComponent data={data} />
@@ -65,9 +54,11 @@ if(!loading || error) {
           />
         </View>
       </ScrollView>
+      )}
+      
     </View>
   );
-  }
+
 }
 
 const styles = StyleSheet.create({
@@ -92,7 +83,6 @@ const styles = StyleSheet.create({
     letterSpacing: -0.8,
   },
   lottie: {
-    height: 200,
-    width: 200,
+      height:height*0.6
   },
 });
