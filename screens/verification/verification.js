@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useContext } from 'react';
 import { View, Text,StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
 import { width, height } from '../../constants/constants';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { GlobalContext } from '../../context/GlobalState';
@@ -23,7 +23,6 @@ export default function Verification({navigation}){
     return(
         <View style={styles.container}>
             <View style={styles.body}>
-                <View style={{borderBottomWidth:1}}>
                     <View style={{marginVertical:60,alignItems:'center'}}>
                         <Text style={styles.mainTitle}>Verification Pin</Text>
                         <View style={{paddingTop:20, paddingHorizontal:45}}>
@@ -32,9 +31,9 @@ export default function Verification({navigation}){
                             <Text style={styles.mainTitle}>{phoneNumber}</Text>
                         </View>
                     </View>
-                </View>
+                <TextInput keyboardType="number-pad" style={{borderBottomWidth:1, width:width*0.6, alignItems:'center'}} />
                 <View style={{marginVertical:30}}>
-                 <TouchableOpacity onPress={() => navigation.navigate('Tabs')} style={styles.button}>
+                 <TouchableOpacity onPress={() => navigation.navigate('General')} style={styles.button}>
                     <Text style={styles.btnText}>Submit code</Text>
                 </TouchableOpacity> 
               </View>

@@ -20,7 +20,8 @@ import NewsComponent from '../../components/home/newsComponent';
 
 export default function HomeScreen() {
 
-  const { loading, data } = useQuery(getGhana);
+  
+  const { loading, data, error, refetch } = useQuery(getGhana);
 
   if (loading) {
     return (
@@ -37,12 +38,15 @@ export default function HomeScreen() {
     );
   }
   
+if(!loading || error) {
   return (
     <View style={styles.container}>
       <Header>
         <Text>Home</Text>
       </Header>
       <ScrollView>
+        {error}
+        
         {/* Slider Items */}
         <View>
           <SliderComponent data={data} />
@@ -63,6 +67,7 @@ export default function HomeScreen() {
       </ScrollView>
     </View>
   );
+  }
 }
 
 const styles = StyleSheet.create({
