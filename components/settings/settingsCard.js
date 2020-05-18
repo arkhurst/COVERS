@@ -33,12 +33,12 @@ const styles = StyleSheet.create({
     mainTitle: {
         fontFamily: 'AirbnbCereal-Bold',
         letterSpacing: -0.5,
-        fontSize:15
+        fontSize:18
       },
       subText: {
         fontFamily: 'AirbnbCereal-Bold',
         letterSpacing: -0.5,
         color: 'grey',
-        fontSize:13
+        fontSize:14
       }
 })
