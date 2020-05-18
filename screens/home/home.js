@@ -18,6 +18,7 @@ import SliderComponent from '../../components/home/sliderComponent';
 import NewsComponent from '../../components/home/newsComponent';
 
 
+
 export default function HomeScreen() {
 
   
