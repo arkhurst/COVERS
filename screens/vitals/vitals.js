@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, Text, Dimensions } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 import Header from '../../components/header/header';
 import LottieView from 'lottie-react-native';
@@ -7,46 +7,64 @@ import * as vitalsAnim from '../../assets/lottie/vitals.json';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import VitalsModal from './vitalsModal';
 import { GlobalContext } from '../../context/GlobalState';
-
-const { width, height } = Dimensions.get('window');
+import { width, height } from '../../constants/constants';
+import UserSymptoms from '../../components/vitals/userSymptoms';
 
 export default function VitalScreen() {
   const [visible, setVisible] = useState(false);
-  const { userVitals } = useContext(GlobalContext)
+  const { userVitals } = useContext(GlobalContext);
 
-  console.log(userVitals)
   function open() {
     setVisible(true);
   }
   function close() {
     setVisible(false);
-  } 
+  }
   return (
     <View style={styles.container}>
       <Header>
         <Text>Vitals</Text>
       </Header>
-      <View style={styles.lottieContainer}>
-        <View style={{ marginVertical: 50 }}>
-          <LottieView source={vitalsAnim} style={styles.lottie} autoPlay loop />
+      {/* Check if user vitals array is empty */}
+
+      {userVitals.length > 0 ? (
+        <View>
+          <UserSymptoms userVitals={userVitals} />
         </View>
-        <View
-          style={{
-            paddingTop: 10,
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
-          <Text style={styles.mainText}>
-            You have not logged your vitals yet.
-          </Text>
-          <TouchableOpacity onPress={open} style={styles.button}>
-            <Text style={styles.mainText}>Log Vitals</Text>
-            <VitalsModal visible={visible} close={close} />
-          </TouchableOpacity>
+      ) : (
+        <Text />
+      )}
+
+      {userVitals.length <= 0 ? (
+        <View style={styles.lottieContainer}>
+          <View style={{ marginVertical: 50 }}>
+            <LottieView
+              source={vitalsAnim}
+              style={styles.lottie}
+              autoPlay
+              loop
+            />
+          </View>
+          <View
+            style={{
+              paddingTop: 10,
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <Text style={styles.mainText}>
+              You have not logged your vitals yet.
+            </Text>
+            <TouchableOpacity onPress={open} style={styles.button}>
+              <Text style={styles.mainText}>Log Vitals</Text>
+              <VitalsModal visible={visible} close={close} />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      ) : (
+        <Text />
+      )}
     </View>
-  ); 
+  );
 }
 
 const styles = StyleSheet.create({

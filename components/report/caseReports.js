@@ -12,11 +12,8 @@ export default function CaseReports({reportFor, contact, description, date }) {
   const [visible, setVisible] = useState(false);
   const isFocused = useIsFocused();
   
-  function open() {
-    setVisible(true);
-  }
-  function close() {
-    setVisible(false);
+  function close() { 
+    setVisible(false); 
   }
   return (
    <View>
@@ -41,9 +38,9 @@ export default function CaseReports({reportFor, contact, description, date }) {
                  visible={isFocused}
                  iconTextComponent={<Ionicons name="ios-add" />}  />
                <ReportModal visible={visible} close={close} />
-            </View>
+     </View>
   );
-}
+}  
 
 const styles = StyleSheet.create({
   container: {

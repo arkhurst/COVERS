@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { View, Text, Modal, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -6,7 +6,6 @@ import Constants from 'expo-constants';
 import LogSymptoms from '../../components/vitals/logSymptoms';
 
 export default function VitalsModal({ close, visible }) {
- 
   return (
     <Modal  visible={visible} animationType="slide" presentationStyle={'pageSheet'}>
       <View style={styles.container}>
