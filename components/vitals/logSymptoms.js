@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { GlobalContext } from '../../context/GlobalState';
 
-const Card = ({ value, sign, handleSelect, idOfSymptom, valueData }) => {
+const Card = ({ value, sign, handleSelect, idOfSymptom, valueData, active }) => {
   return (
     <View>
       <TouchableOpacity
         onPress={() => handleSelect(valueData, idOfSymptom)}
-        style={styles.values}>
+        style={[styles.values, active ? styles.selectedValue : styles.values]}>
         <Text style={styles.number}>{value}</Text>
       </TouchableOpacity>
       <View style={{ marginHorizontal: 10, paddingTop: 10 }}>
@@ -19,6 +19,8 @@ const Card = ({ value, sign, handleSelect, idOfSymptom, valueData }) => {
 };
 
 export default function LogSymptoms() {
+  const [load, setLoad] = useState(false);
+  const [active,setActive] = useState(false)
   const [fever, setFever] = useState({});
   const [aches, setAches] = useState({});
   const [breath, setBreath] = useState({});
@@ -28,6 +30,7 @@ export default function LogSymptoms() {
   const { symptoms, submitSymptom } = useContext(GlobalContext);
 
   function handleSelect(valueData, idOfSymptom) {
+    
     if (idOfSymptom === 1) {
       return setFever(valueData);
     } else if (idOfSymptom === 2) {
@@ -44,15 +47,18 @@ export default function LogSymptoms() {
   }
 
   function submit() {
-    const newSymptoms = {
-      fever,
-      aches,
-      breath,
-      throat,
-      cough,
-      headache,
-    };
-    submitSymptom(newSymptoms);
+    setLoad(true)
+    setTimeout(() => {
+      const newSymptoms = { 
+        fever,
+        aches,
+        breath,
+        throat,
+        cough,
+        headache,
+      };
+      submitSymptom(newSymptoms);
+    },2000)
   }
 
   return (
@@ -71,6 +77,7 @@ export default function LogSymptoms() {
                   }}>
                   {symptom.selected.map(select => (
                     <Card
+                      active={active}
                       key={select.id}
                       handleSelect={handleSelect}
                       idOfSymptom={symptom.id}
@@ -86,9 +93,14 @@ export default function LogSymptoms() {
       </ScrollView>
       {/* Button */}
       <TouchableOpacity onPress={submit} style={styles.button}>
-        <Text style={([styles.description], { color: 'white' })}>
-          Log Vitals
-        </Text>
+        {load ? (
+          <ActivityIndicator color="black" />
+        ):(
+          <Text style={([styles.description], { color: 'white' })}>
+            Log Vitals
+          </Text>
+        )}
+     
       </TouchableOpacity>
     </>
   );

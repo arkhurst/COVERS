@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import FAB from 'react-native-fab';
-import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { covertDateTime } from '../../constants/constants';
 import VitalsModal from '../../screens/vitals/vitalsModal';
 import { height } from '../../constants/constants';
@@ -22,35 +22,35 @@ export default function UserSymptoms({ userVitals }) {
         <Text style={styles.date}>{covertDateTime(date)}</Text>
         {userVitals.map(userVital => (
           <View key={userVital.id} style={styles.container}>
-            <View style={styles.box}>
-              <Text>Fever</Text>
-              <Text>{userVital.fever.value}</Text>
-              <Text>{userVital.fever.sign}</Text>
+            <View style={styles.none}>
+              <Text style={styles.text}>Fever</Text>
+              <Text style={styles.text}>{userVital.fever.value}</Text>
+              <Text style={styles.text} >{userVital.fever.sign}</Text>
             </View>
-            <View style={styles.box}>
-              <Text>Aches</Text>
-              <Text>{userVital.aches.value}</Text>
-              <Text>{userVital.aches.sign}</Text>
+            <View style={styles.mild}>
+              <Text style={styles.text} >Aches</Text>
+              <Text style={styles.text}>{userVital.aches.value}</Text>
+              <Text style={styles.text}>{userVital.aches.sign}</Text>
             </View>
-            <View style={styles.box}>
-              <Text>Breath</Text>
-              <Text>{userVital.breath.value}</Text>
-              <Text>{userVital.breath.sign}</Text>
+            <View style={styles.mid}>
+              <Text style={styles.text} >Breath</Text>
+              <Text style={styles.text}>{userVital.breath.value}</Text>
+              <Text style={styles.text}>{userVital.breath.sign}</Text>
             </View>
-            <View style={styles.box}>
-              <Text>Throat</Text>
-              <Text>{userVital.throat.value}</Text>
-              <Text>{userVital.throat.sign}</Text>
+            <View style={styles.semi}>
+              <Text style={styles.text}>Throat</Text>
+              <Text style={styles.text}>{userVital.throat.value}</Text>
+              <Text style={styles.text}>{userVital.throat.sign}</Text>
             </View>
-            <View style={styles.box}>
-              <Text>Cough</Text>
-              <Text>{userVital.cough.value}</Text>
-              <Text>{userVital.cough.sign}</Text>
+            <View style={styles.high}>
+              <Text style={styles.text}>Cough</Text>
+              <Text style={styles.text}>{userVital.cough.value}</Text>
+              <Text style={styles.text}>{userVital.cough.sign}</Text>
             </View>
-            <View style={styles.box}>
-              <Text>Headache</Text>
-              <Text>{userVital.headache.value}</Text>
-              <Text>{userVital.headache.sign}</Text>
+            <View style={styles.none}>
+              <Text style={styles.text}>Headache</Text>
+              <Text style={styles.text}>{userVital.headache.value}</Text>
+              <Text style={styles.text}>{userVital.headache.sign}</Text>
             </View>
           </View>
         ))}
@@ -89,9 +89,63 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 5,
   },
+  none:{
+    backgroundColor: '#7ff8c1',
+    height: 100,
+    width: 100,
+    borderRadius: 10,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    marginVertical: 5,
+  },
+  high:{
+    backgroundColor:'#eb0e18',
+    height: 100,
+    width: 100,
+    borderRadius: 10,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    marginVertical: 5,
+  },
+  mild:{
+    backgroundColor:'#7fdefb',
+    height: 100,
+    width: 100,
+    borderRadius: 10,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    marginVertical: 5,
+  },
+  mid:{
+    backgroundColor:'#cd7efb',
+    height: 100,
+    width: 100,
+    borderRadius: 10,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    marginVertical: 5,
+  },
+  semi:{
+    backgroundColor:'#ff8208',
+    height: 100,
+    width: 100,
+    borderRadius: 10,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    marginVertical: 5,
+  },
   date: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.3,
     padding: 15,
+  },
+  text: {
+    fontFamily: 'AirbnbCereal-Bold',
+    letterSpacing: -0.3,
   },
 });
