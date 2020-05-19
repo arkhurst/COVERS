@@ -1,6 +1,6 @@
 export default (state, action) => {
     switch (action.type) {
-      case 'REMOVE_CASE':
+      case 'REMOVE_CASE': 
         return {
           ...state,
           reports: state.reports.filter(report => report.id !== action.payload),
@@ -10,13 +10,18 @@ export default (state, action) => {
           ...state,
           reports: [action.payload, ...state.reports],
         };
-        case 'Add_Phone':
+      case 'Add_Phone':
           return {
             ...state,
             phoneNumber:[action.payload, ...state.phoneNumber]
           }
+      case 'SUBMIT_REPORT':
+          return {
+            ...state,
+            userVitals: [action.payload, ...state.symptoms]
+          }
       default:
-        return state;
+        return state; 
     }
   };
   

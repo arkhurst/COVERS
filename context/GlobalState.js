@@ -4,12 +4,75 @@ import AppReducer from './AppReducer';
 const initialState = {
   reports: [],
   symptoms:[
-    {id:1, sign:'None', value:0, selected:true},
-    {id:2, sign:'Mild', value:1, selected:false},
-    {id:3, sign:'Mid', value:2, selected:false},
-    {id:4, sign:'Semi', value:3, selected:false},
-    {id:5, sign:'High', value:4, selected:false}
+    {
+      id:1,
+      name:'Fever',
+      selected:[
+        {id:1, sign:'None', value:0},
+        {id:2, sign:'Mild', value:1},
+        {id:3, sign:'Mid', value:2},
+        {id:4, sign:'Semi', value:3},
+        {id:5, sign:'High', value:4}
+     ]
+    },
+    {
+      id:2,
+      name:'Aches and Pains ',
+      selected:[
+        {id:1, sign:'None', value:0},
+        {id:2, sign:'Mild', value:1},
+        {id:3, sign:'Mid', value:2},
+        {id:4, sign:'Semi', value:3},
+        {id:5, sign:'High', value:4}
+     ]
+    },
+    {
+      id:3,
+      name:'Shortness of breath ',
+      selected:[
+        {id:1, sign:'None', value:0},
+        {id:2, sign:'Mild', value:1},
+        {id:3, sign:'Mid', value:2},
+        {id:4, sign:'Semi', value:3},
+        {id:5, sign:'High', value:4}
+     ]
+    },
+    {
+      id:4,
+      name:' Sore Throat  ',
+      selected:[
+        {id:1, sign:'None', value:0},
+        {id:2, sign:'Mild', value:1},
+        {id:3, sign:'Mid', value:2},
+        {id:4, sign:'Semi', value:3},
+        {id:5,sign:'High', value:4}
+     ]
+    },
+    {
+      id:5,
+      name:' Dry Cough  ',
+      selected:[
+        {id:1, sign:'None', value:0},
+        {id:2, sign:'Mild', value:1},
+        {id:3, sign:'Mid', value:2},
+        {id:4, sign:'Semi', value:3},
+        {id:5, sign:'High', value:4}
+     ]
+    },
+    {
+      id:6,
+      name:'Headache',
+      selected:[
+        {id:1, sign:'None', value:0},
+        {id:2, sign:'Mild', value:1},
+        {id:3, sign:'Mid', value:2},
+        {id:4, sign:'Semi', value:3},
+        {id:5, sign:'High', value:4}
+     ]
+    },
+
   ],
+  userVitals:[],
   phoneNumber:[]
 };
 
@@ -39,6 +102,13 @@ export const GlobalProvider = ({ children }) => {
        payload:phone
      })
   }
+
+  function submitSymptom(symptom){
+    dispatch({
+      type:'SUBMIT_REPORT',
+      payload:symptom
+    })
+  }
   
   return (
     <GlobalContext.Provider
@@ -49,6 +119,8 @@ export const GlobalProvider = ({ children }) => {
         symptoms:state.symptoms,
         phoneNumber:state.phoneNumber,
         addPhoneNumber,
+        submitSymptom,
+        userVitals:state.userVitals
   
       }}>
       {children}

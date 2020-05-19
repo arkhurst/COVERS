@@ -20,7 +20,7 @@ export default function VitalsModal({ close, visible }) {
       </View>
     </Modal>
   );
-}
+} 
 
 const styles = StyleSheet.create({
   container: {
