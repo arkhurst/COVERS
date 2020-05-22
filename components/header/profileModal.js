@@ -4,7 +4,6 @@ import {
   Text,
   Modal,
   StyleSheet,
-  Image,
   KeyboardAvoidingView,
   ActivityIndicator,
   Alert,
@@ -17,34 +16,31 @@ import RadioButtonRN from 'radio-buttons-react-native';
 import { width, height } from '../../constants/constants';
 
 export default function ProfileModal({ visible, cancel }) {
+  const [countryCode, setCountryCode] = useState('GH');
+  const [countryCode2, setCountryCode2] = useState('GH');
+  const [country, setCountry] = useState('Ghana');
+  const [country2, setCountry2] = useState('Ghana');
+  const [withCountryNameButton, setWithCountryNameButton] = useState(false);
 
-  
-  const [countryCode, setCountryCode] = useState('GH')
-  const [countryCode2, setCountryCode2] = useState('GH')
-  const [country, setCountry] = useState("Ghana")
-  const [country2,setCountry2] = useState("Ghana")
-  const [withCountryNameButton, setWithCountryNameButton] = useState(false )
- 
-  const [withFlag, setWithFlag] = useState(true)
-  const [withEmoji, setWithEmoji] = useState(true)
-  const [withAlphaFilter, setWithAlphaFilter] = useState(false)
-  const [withCallingCode, setWithCallingCode] = useState(false)
+  const [withFlag, setWithFlag] = useState(true);
+  const [withEmoji, setWithEmoji] = useState(true);
+  const [withAlphaFilter, setWithAlphaFilter] = useState(false);
+  const [withCallingCode, setWithCallingCode] = useState(false);
 
-  const [load, setLoad] = useState(false)
+  const [load, setLoad] = useState(false);
 
   // Radio Button data
   const rbData = [{ label: 'Male' }, { label: 'Female' }];
-  
-  const onSelect = (country,num) => {
-    if(num === 1){
-      setCountryCode(country.cca2)
-      setCountry(country)
-    }else{
-      setCountryCode2(country.cca2)
-      setCountry2(country)
-    } 
-  
-  }
+
+  const onSelect = (country, num) => {
+    if (num === 1) {
+      setCountryCode(country.cca2);
+      setCountry(country);
+    } else {
+      setCountryCode2(country.cca2);
+      setCountry2(country);
+    }
+  };
 
   function updateProfile() {
     setLoad(true);
@@ -109,51 +105,43 @@ export default function ProfileModal({ visible, cancel }) {
               <View style={styles.countryContainer}>
                 {/* Pick first country */}
                 <View style={styles.selectCountry}>
-                <CountryPicker 
-                      {...{
-                        countryCode,
-                        country,
-                        withFlag,
-                        withCountryNameButton,
-                        withAlphaFilter,
-                        withCallingCode,
-                        withEmoji,
-                        onSelect: (value, num=1) => onSelect(value,num),
-                     
-                      }}
-                      
-                />  
-                {country.name == null ? (
-                    <Text style={styles.mainText}>
-                      {country}
-                    </Text>
-                 ):(
-                    <Text style={styles.mainText}>{country.name}</Text>
-                    )
-                 }
-                </View>
-                {/* Pick second country */}
-               <View style={styles.selectCountry}>
-               <CountryPicker
+                  <CountryPicker
                     {...{
-                      countryCode:countryCode2,
+                      countryCode,
+                      country,
                       withFlag,
                       withCountryNameButton,
                       withAlphaFilter,
                       withCallingCode,
                       withEmoji,
-                      onSelect: (value, num=2) => onSelect(value,num)
-                    }} 
-                />
-                {country2.name == null ? (
-                  <Text style={styles.mainText}>
-                    {country2}
-                  </Text>
-                  ):(
-                  <Text style={styles.mainText}>{country2.name}</Text>
-                  )
-                  }
-               </View>
+                      onSelect: (value, num = 1) => onSelect(value, num),
+                    }}
+                  />
+                  {country.name == null ? (
+                    <Text style={styles.mainText}>{country}</Text>
+                  ) : (
+                    <Text style={styles.mainText}>{country.name}</Text>
+                  )}
+                </View>
+                {/* Pick second country */}
+                <View style={styles.selectCountry}>
+                  <CountryPicker
+                    {...{
+                      countryCode: countryCode2,
+                      withFlag,
+                      withCountryNameButton,
+                      withAlphaFilter,
+                      withCallingCode,
+                      withEmoji,
+                      onSelect: (value, num = 2) => onSelect(value, num),
+                    }}
+                  />
+                  {country2.name == null ? (
+                    <Text style={styles.mainText}>{country2}</Text>
+                  ) : (
+                    <Text style={styles.mainText}>{country2.name}</Text>
+                  )}
+                </View>
               </View>
             </View>
             {/* Medical professional */}
@@ -229,8 +217,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   selectCountry: {
-    width: width*0.4,
-    height: height*0.14,
+    width: width * 0.4,
+    height: height * 0.14,
     borderRadius: 10,
     borderWidth: 1.5,
     marginHorizontal: 5,
@@ -244,5 +232,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 52,
   },
- 
 });

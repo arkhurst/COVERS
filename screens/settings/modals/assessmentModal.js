@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   mainText: {
-    fontFamily: 'AirbnbCereal-Book',
+    fontFamily: 'AirbnbCereal-Medium',
     letterSpacing: -0.1,
   },
   button: {

@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   contentText: {
-    fontFamily: 'AirbnbCereal-Book',
-    fontSize: 15,
+    fontFamily: 'AirbnbCereal-Medium',
+    fontSize: 14,
   },
   inactive: {
     // backgroundColor: 'rgba(255,255,255,1)',

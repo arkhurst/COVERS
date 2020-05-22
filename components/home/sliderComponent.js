@@ -6,7 +6,7 @@ import { addCommas } from '../../constants/constants';
 export default function({ data }) {
   return (
     <ScrollView horizontal>
-      {/* Confirmed cases */}
+      {/* Confirmed cases */} 
       <View>
         <Image
           source={require('../../assets/virus.png')}
@@ -20,7 +20,7 @@ export default function({ data }) {
       {/* Recovered */}
       <View>
         <Image
-          source={require('../../assets/recovery.png')}
+          source={require('../../assets/recovered.jpg')}
           style={styles.image}
         />
         <Text style={styles.number}>
