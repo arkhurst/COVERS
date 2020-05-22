@@ -12,49 +12,38 @@ import {
 import Constants from 'expo-constants';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
+import CountryPicker from 'react-native-country-picker-modal';
 import RadioButtonRN from 'radio-buttons-react-native';
-import { useQuery } from '@apollo/react-hooks';
-import { getCountry } from '../../queries/queries';
-import CountriesModal from './countriesModal';
+import { width, height } from '../../constants/constants';
 
 export default function ProfileModal({ visible, cancel }) {
-  const [country1, setCountry1] = useState({
-    country: 'Ghana',
-    countryInfo: {
-      flag: 'https://corona.lmao.ninja/assets/img/flags/gh.png',
-    },
-  }); 
-  const [country2, setCountry2] = useState({
-    country: 'Ghana',
-    countryInfo: {
-      flag: 'https://corona.lmao.ninja/assets/img/flags/gh.png',
-    },
-  });
-  const [showModal, setModal] = useState(false);
-  const [check, setCheck] = useState(0);
-  const { loading, data } = useQuery(getCountry);
-  const [load, setLoad] = useState(false);
+
+  
+  const [countryCode, setCountryCode] = useState('GH')
+  const [countryCode2, setCountryCode2] = useState('GH')
+  const [country, setCountry] = useState("Ghana")
+  const [country2,setCountry2] = useState("Ghana")
+  const [withCountryNameButton, setWithCountryNameButton] = useState(false )
+ 
+  const [withFlag, setWithFlag] = useState(true)
+  const [withEmoji, setWithEmoji] = useState(true)
+  const [withAlphaFilter, setWithAlphaFilter] = useState(false)
+  const [withCallingCode, setWithCallingCode] = useState(false)
+
+  const [load, setLoad] = useState(false)
 
   // Radio Button data
   const rbData = [{ label: 'Male' }, { label: 'Female' }];
-
-  // open modal
-  function open(value) {
-    setModal(true);
-    setCheck(value);
-  }
-
-  function close() {
-    setModal(false);
-  }
-
-  function selectCountry(data) {
-    if (check === 1) {
-      setCountry1(data);
-    } else {
-      setCountry2(data);
-    }
-    setModal(false);
+  
+  const onSelect = (country,num) => {
+    if(num === 1){
+      setCountryCode(country.cca2)
+      setCountry(country)
+    }else{
+      setCountryCode2(country.cca2)
+      setCountry2(country)
+    } 
+  
   }
 
   function updateProfile() {
@@ -118,39 +107,53 @@ export default function ProfileModal({ visible, cancel }) {
                 Select the last two countries you visited (If Applicable)
               </Text>
               <View style={styles.countryContainer}>
-                <TouchableOpacity
-                  onPress={() => open(1)}
-                  style={styles.selectCountry}>
-                  <Image
-                    style={styles.flag}
-                    source={{ uri: country1?.countryInfo?.flag || 'N/A' }}
-                  />
-                  <View style={{ marginVertical: 5 }}>
+                {/* Pick first country */}
+                <View style={styles.selectCountry}>
+                <CountryPicker 
+                      {...{
+                        countryCode,
+                        country,
+                        withFlag,
+                        withCountryNameButton,
+                        withAlphaFilter,
+                        withCallingCode,
+                        withEmoji,
+                        onSelect: (value, num=1) => onSelect(value,num),
+                     
+                      }}
+                      
+                />  
+                {country.name == null ? (
                     <Text style={styles.mainText}>
-                      {country1?.country || 'N/A'}
+                      {country}
                     </Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => open(2)}
-                  style={styles.selectCountry}>
-                  <Image
-                    style={styles.flag}
-                    source={{ uri: country2?.countryInfo?.flag || 'N/A' }}
-                  />
-                  <View style={{ marginVertical: 5 }}>
-                    <Text style={styles.mainText}>
-                      {country2?.country || 'N/A'}
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-                <CountriesModal
-                  selectCountry={selectCountry}
-                  loading={loading}
-                  data={data}
-                  visible={showModal}
-                  close={close}
+                 ):(
+                    <Text style={styles.mainText}>{country.name}</Text>
+                    )
+                 }
+                </View>
+                {/* Pick second country */}
+               <View style={styles.selectCountry}>
+               <CountryPicker
+                    {...{
+                      countryCode:countryCode2,
+                      withFlag,
+                      withCountryNameButton,
+                      withAlphaFilter,
+                      withCallingCode,
+                      withEmoji,
+                      onSelect: (value, num=2) => onSelect(value,num)
+                    }} 
                 />
+                {country2.name == null ? (
+                  <Text style={styles.mainText}>
+                    {country2}
+                  </Text>
+                  ):(
+                  <Text style={styles.mainText}>{country2.name}</Text>
+                  )
+                  }
+               </View>
               </View>
             </View>
             {/* Medical professional */}
@@ -226,8 +229,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   selectCountry: {
-    width: 180,
-    height: 120,
+    width: width*0.4,
+    height: height*0.14,
     borderRadius: 10,
     borderWidth: 1.5,
     marginHorizontal: 5,
@@ -241,8 +244,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 52,
   },
-  flag: {
-    width: 40,
-    height: 25,
-  },
+ 
 });
