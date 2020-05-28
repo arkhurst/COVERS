@@ -10,11 +10,11 @@ export default (state, action) => {
         ...state,
         reports: [action.payload, ...state.reports],
       };
-    case 'Add_Phone':
+    case 'ADD_PHONE':
       return {
         ...state,
         phoneNumber: [action.payload, ...state.phoneNumber],
-      };
+      }; 
     case 'SUBMIT_REPORT':
       return {
         ...state,

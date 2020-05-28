@@ -8,6 +8,7 @@ import { GlobalContext } from '../../context/GlobalState';
 
 export default function Verification({ navigation }) {
   const { phoneNumber } = useContext(GlobalContext);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
@@ -29,6 +30,7 @@ export default function Verification({ navigation }) {
       ),
     });
   }, [navigation]);
+
 
   return (
     <View style={styles.container}>

@@ -31,11 +31,10 @@ export const GlobalProvider = ({ children }) => {
 
   function addPhoneNumber(phone) {
     dispatch({
-      type: 'Add_Phone',
+      type: 'ADD_PHONE',
       payload: phone,
     });
   }
-
   function submitSymptom(symptom) {
     dispatch({
       type: 'SUBMIT_REPORT',

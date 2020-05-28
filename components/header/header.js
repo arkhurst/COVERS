@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
 import Modal from 'react-native-modalbox';
 import ProfileModal from './profileModal';
@@ -39,7 +39,7 @@ const Header = props => {
     <View style={styles.container}>
       <View style={styles.firstContainer}>
         <TouchableOpacity onPress={openModal}>
-          <FontAwesome name="user-circle" size={33} />
+          <Ionicons name="ios-contact" size={39} />
           <ProfileModal visible={visible} cancel={cancel} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{props.children}</Text>
