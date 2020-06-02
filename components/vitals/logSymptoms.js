@@ -20,7 +20,7 @@ const Card = ({ value, sign, handleSelect, idOfSymptom, valueData, active }) => 
 
 export default function LogSymptoms() {
   const [load, setLoad] = useState(false);
-  const [active,setActive] = useState(false)
+  const [active,setActive] = useState(null)
   const [fever, setFever] = useState({});
   const [aches, setAches] = useState({});
   const [breath, setBreath] = useState({});
@@ -30,9 +30,9 @@ export default function LogSymptoms() {
   const { symptoms, submitSymptom } = useContext(GlobalContext);
 
   function handleSelect(valueData, idOfSymptom) {
-    
-    if (idOfSymptom === 1) {
-      return setFever(valueData);
+      
+    if (idOfSymptom === 1) {  
+       return setFever(valueData); 
     } else if (idOfSymptom === 2) {
       return setAches(valueData);
     } else if (idOfSymptom === 3) {

@@ -12,6 +12,7 @@ import { Notification } from '../../data/data';
 const Header = props => {
   const [visible, setVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [notifications, setNotification] = useState(false)
 
   const open = () => {
     setIsOpen(true);
@@ -56,11 +57,20 @@ const Header = props => {
           swipeToClose={true}>
           <View style={styles.notsContainer}>
             <Text style={styles.notsTitle}>Notifications</Text>
-            <FlatList
-              data={Notification}
-              renderItem={({ item }) => <MessageList {...item} />}
-              keyExtractor={item => item.id.toString()}
+            {!notifications ? (
+               <View style={styles.emptyNotification}>
+                 <Ionicons name="ios-information-circle-outline" size={24} color="tomato" />
+                 <Text style={{fontFamily: 'AirbnbCereal-Medium', paddingLeft:5}}>Sorry, there are no notifications.</Text>
+              </View>
+            ):(
+              <FlatList
+                data={Notification}
+                renderItem={({ item }) => <MessageList {...item} />}
+                keyExtractor={item => item.id.toString()}
             />
+            )}
+          
+           
           </View>
         </Modal>
       </TouchableOpacity>
@@ -92,7 +102,7 @@ const styles = StyleSheet.create({
 
   modal: {
     height: height * 0.9,
-    backgroundColor: 'white',
+    backgroundColor: 'whitesmoke',
     marginTop: 70,
     borderRadius: 20,
     shadowColor: 'black',
@@ -119,6 +129,16 @@ const styles = StyleSheet.create({
     fontFamily: 'AirbnbCereal-Book',
     letterSpacing: -0.2,
   },
+  emptyNotification:{
+    height:55,
+    width:'70%',
+    flexDirection:'row',
+     paddingHorizontal:10,
+    alignItems:"center",
+    backgroundColor:'#fff',
+    marginTop:20,
+    marginHorizontal:55
+  }
 });
 
 export default Header;

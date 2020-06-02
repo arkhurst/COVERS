@@ -35,6 +35,12 @@ export const GlobalProvider = ({ children }) => {
       payload: phone,
     });
   }
+  function deletePhoneNumber(phone){
+    dispatch({
+      type:'DELETE_PHONE',
+      payload:phone
+    })
+  }
   function submitSymptom(symptom) {
     dispatch({
       type: 'SUBMIT_REPORT',
@@ -52,6 +58,7 @@ export const GlobalProvider = ({ children }) => {
         removeCaseReport,
         makeCaseReport,
         addPhoneNumber,
+        deletePhoneNumber,
         submitSymptom,
       }}>
       {children}

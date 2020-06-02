@@ -7,13 +7,13 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { GlobalContext } from '../../context/GlobalState';
 
 export default function Verification({ navigation }) {
-  const { phoneNumber } = useContext(GlobalContext);
+  const { phoneNumber, deletePhoneNumber } = useContext(GlobalContext);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
         <TouchableOpacity
-          onPress={() => navigation.goBack()}
+          onPress={goBack}
           style={{
             flexDirection: 'row',
             paddingHorizontal: 15,
@@ -31,6 +31,10 @@ export default function Verification({ navigation }) {
     });
   }, [navigation]);
 
+  function goBack(){
+    navigation.goBack()
+    deletePhoneNumber(phoneNumber)
+  }
 
   return (
     <View style={styles.container}>

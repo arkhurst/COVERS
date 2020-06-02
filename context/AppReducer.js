@@ -14,7 +14,12 @@ export default (state, action) => {
       return {
         ...state,
         phoneNumber: [action.payload, ...state.phoneNumber],
-      }; 
+      };
+    case 'DELETE_PHONE':
+       return {
+         ...state,
+         phoneNumber: state.phoneNumber.splice(1,1)
+       }  
     case 'SUBMIT_REPORT':
       return {
         ...state,
