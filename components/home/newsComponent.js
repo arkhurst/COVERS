@@ -1,12 +1,18 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import ProgressiveImage from '../progressive_image/progressiveImage';
 
 export default function NewsComponent({ title, body,image }) {
   return (
     <View style={styles.newsContainer}>
       <View>
-        <Image style={styles.image} source={image} />
+        <ProgressiveImage
+         thumbnailSource={require('../../assets/placeholder.png')}
+         style={styles.image} 
+         source={image} 
+         resizeMode="cover"
+         />
       </View>
       <View style={styles.newsBody}>
         <Text style={styles.headerText}>{title}</Text>

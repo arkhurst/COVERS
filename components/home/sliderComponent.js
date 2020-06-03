@@ -1,16 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { addCommas } from '../../constants/constants';
+import ProgressiveImage from '../progressive_image/progressiveImage';
 
 export default function({ data }) {
   return (
     <ScrollView horizontal>
       {/* Confirmed cases */} 
       <View>
-        <Image
+        <ProgressiveImage
+          thumbnailSource={require('../../assets/placeholder.png')}
           source={require('../../assets/virus.png')}
           style={styles.image}
+          resizeMode="cover"
         />
         <Text style={styles.number}>
           {addCommas(data?.country?.result?.cases) || 'N/A'}
@@ -19,9 +22,11 @@ export default function({ data }) {
       </View>
       {/* Recovered */}
       <View>
-        <Image
+        <ProgressiveImage
+          thumbnailSource={require('../../assets/placeholder.png')}
           source={require('../../assets/recovered.jpg')}
           style={styles.image}
+          resizeMode="cover"
         />
         <Text style={styles.number}>
           {addCommas(data?.country?.result?.recovered) || 'N/A'}
@@ -30,9 +35,11 @@ export default function({ data }) {
       </View>
       {/* Deaths */}
       <View>
-        <Image
+        <ProgressiveImage
+          thumbnailSource={require('../../assets/placeholder.png')}
           source={require('../../assets/deaths.jpeg')}
           style={styles.image}
+          resizeMode="c"
         />
         <Text style={styles.number}>
           {addCommas(data?.country?.result?.deaths) || 'N/A'}
@@ -50,6 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginHorizontal: 10,
     marginVertical: 20,
+    backgroundColor: '#e1e4e8',
   },
   number: {
     position: 'absolute',
