@@ -3,12 +3,12 @@ import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { GlobalContext } from '../../context/GlobalState';
 
-const Card = ({ value, sign, handleSelect, idOfSymptom, valueData, active }) => {
+const Card = ({ value, sign, handleSelect, idOfSymptom, valueData, selectStatus }) => {
   return (
     <View>
       <TouchableOpacity
         onPress={() => handleSelect(valueData, idOfSymptom)}
-        style={[styles.values, active ? styles.selectedValue : styles.values]}>
+        style={[styles.values, selectStatus ? styles.selectedValue : styles.values]}>
         <Text style={styles.number}>{value}</Text>
       </TouchableOpacity>
       <View style={{ marginHorizontal: 10, paddingTop: 10 }}>
@@ -30,22 +30,35 @@ export default function LogSymptoms() {
   const { symptoms, submitSymptom } = useContext(GlobalContext);
 
   function handleSelect(valueData, idOfSymptom) {
-      
-    if (idOfSymptom === 1) {  
-       return setFever(valueData); 
-    } else if (idOfSymptom === 2) {
-      return setAches(valueData);
-    } else if (idOfSymptom === 3) {
-      return setBreath(valueData);
-    } else if (idOfSymptom === 4) {
-      return setThroat(valueData);
+    if (idOfSymptom === 1 ) {
+       valueData.selectStatus = !valueData.selectStatus  
+       setFever(valueData); 
+       return {...valueData}
+    } else if (idOfSymptom === 2 ) {
+      valueData.selectStatus = !valueData.selectStatus  
+      setAches(valueData);
+      return {...valueData}
+    } else if (idOfSymptom === 3 ) {
+      valueData.selectStatus = !valueData.selectStatus  
+      setBreath(valueData);
+      return {...valueData}
+    } else if (idOfSymptom === 4 ) {
+      valueData.selectStatus = !valueData.selectStatus  
+      setThroat(valueData);
+      return {...valueData}
     } else if (idOfSymptom === 5) {
-      return setCough(valueData);
+      valueData.selectStatus = !valueData.selectStatus  
+       setCough(valueData);
+       return {...valueData}
     } else {
-      return setHeadache(valueData);
+      valueData.selectStatus = !valueData.selectStatus  
+      setHeadache(valueData);
+      return {...valueData}
     }
+ 
   }
 
+  
   function submit() {
     setLoad(true)
     setTimeout(() => {
@@ -77,7 +90,6 @@ export default function LogSymptoms() {
                   }}>
                   {symptom.selected.map(select => (
                     <Card
-                      active={active}
                       key={select.id}
                       handleSelect={handleSelect}
                       idOfSymptom={symptom.id}
