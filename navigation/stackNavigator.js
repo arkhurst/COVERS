@@ -5,6 +5,7 @@ import Onboarding from '../screens/onboarding/onBoarding';
 import Verification from '../screens/verification/verification';
 import General from '../screens/general/general';
 import { View , Text } from 'react-native';
+import NewsDetails from '../screens/news_details/newsDetails';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +47,13 @@ export default function StackNavigator() {
         options={{
           headerShown: false,
         }}
+      />
+      <Stack.Screen 
+         name="News"
+         component={NewsDetails}
+         options={{
+           headerShown:false
+         }}
       />
     </Stack.Navigator>
   );

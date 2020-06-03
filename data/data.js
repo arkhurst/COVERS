@@ -1,27 +1,31 @@
 export const News = [
     {
       id: 1,
-      title: '32 nurses and midwives test\npositive for COVID-19',
-      body: 'Body text',
+      title: '32 Nurses & Midwives Test Positive for COVID-19',
+      body: "Thirty-two Nurses and Midwives have tested positive for the COVID-19 in Ghana, official figures from the Ghana Registered Nurses and Midwives’ Association (GRNMA) reveal.The president of the GRNMA, Mrs Perpetual Ofori-Ampofo, also disclosed that 250 of her members have been quarantined, awaiting their test results. The West African country has so far confirmed 5,127 coronavirus cases resulting in 22 deaths and over 400 recoveries.Thirty-two Nurses and Midwives have tested positive for the COVID-19 in Ghana, official figures from the Ghana Registered Nurses and Midwives’ Association (GRNMA) reveal.The president of the GRNMA, Mrs Perpetual Ofori-Ampofo, also disclosed that 250 of her members have been quarantined, awaiting their test results. The West African country has so far confirmed 5,127 coronavirus cases resulting in 22 deaths and over 400 recoveries.",
       image: require('../assets/nurses.jpg'),
+      source:"GhanaWeb"
     },
     {
       id: 2,
-      title: 'Upper East Police\nawait coronavirus results',
-      body: 'Body text',
+      title: 'Upper East Police Await Coronavirus Results',
+      body: "Thirty-two Nurses and Midwives have tested positive for the COVID-19 in Ghana, official figures from the Ghana Registered Nurses and Midwives’ Association (GRNMA) reveal.The president of the GRNMA, Mrs Perpetual Ofori-Ampofo, also disclosed that 250 of her members have been quarantined, awaiting their test results. The West African country has so far confirmed 5,127 coronavirus cases resulting in 22 deaths and over 400 recoveries.Thirty-two Nurses and Midwives have tested positive for the COVID-19 in Ghana, official figures from the Ghana Registered Nurses and Midwives’ Association (GRNMA) reveal.The president of the GRNMA, Mrs Perpetual Ofori-Ampofo, also disclosed that 250 of her members have been quarantined, awaiting their test results. The West African country has so far confirmed 5,127 coronavirus cases resulting in 22 deaths and over 400 recoveries.",
       image: require('../assets/police.jpg'),
+      source:"GhanaWeb"
     },
     {
       id: 3,
-      title: 'Govt begins post-COVID\nsafety measures',
-      body: 'Body text',
+      title: 'Govt Begins Post-COVID Safety Measures',
+      body: "Thirty-two Nurses and Midwives have tested positive for the COVID-19 in Ghana, official figures from the Ghana Registered Nurses and Midwives’ Association (GRNMA) reveal.The president of the GRNMA, Mrs Perpetual Ofori-Ampofo, also disclosed that 250 of her members have been quarantined, awaiting their test results. The West African country has so far confirmed 5,127 coronavirus cases resulting in 22 deaths and over 400 recoveries.Thirty-two Nurses and Midwives have tested positive for the COVID-19 in Ghana, official figures from the Ghana Registered Nurses and Midwives’ Association (GRNMA) reveal.The president of the GRNMA, Mrs Perpetual Ofori-Ampofo, also disclosed that 250 of her members have been quarantined, awaiting their test results. The West African country has so far confirmed 5,127 coronavirus cases resulting in 22 deaths and over 400 recoveries.",
       image: require('../assets/govt.jpg'),
+      source:"GhanaWeb"
     },
     {
       id: 4,
-      title: 'Airline industry\noutlines new norms',
-      body: 'Body text',
+      title: 'Airline Industry Outlines New Norms',
+      body: "Thirty-two Nurses and Midwives have tested positive for the COVID-19 in Ghana, official figures from the Ghana Registered Nurses and Midwives’ Association (GRNMA) reveal.The president of the GRNMA, Mrs Perpetual Ofori-Ampofo, also disclosed that 250 of her members have been quarantined, awaiting their test results. The West African country has so far confirmed 5,127 coronavirus cases resulting in 22 deaths and over 400 recoveries.Thirty-two Nurses and Midwives have tested positive for the COVID-19 in Ghana, official figures from the Ghana Registered Nurses and Midwives’ Association (GRNMA) reveal.The president of the GRNMA, Mrs Perpetual Ofori-Ampofo, also disclosed that 250 of her members have been quarantined, awaiting their test results. The West African country has so far confirmed 5,127 coronavirus cases resulting in 22 deaths and over 400 recoveries.",
       image: require('../assets/airline.jpg'),
+      source:"BBC"
     },
   ];
   

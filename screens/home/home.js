@@ -10,7 +10,7 @@ import LottieView from 'lottie-react-native';
 import * as load from '../../assets/lottie/loading2.json';
 import Constants from 'expo-constants';
 import Header from '../../components/header/header';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { FlatList, ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { News } from '../../data/data';
 import { getGhana } from '../../queries/queries';
 import { covertDateTime,height  } from '../../constants/constants';
@@ -19,12 +19,13 @@ import NewsComponent from '../../components/home/newsComponent';
 
 
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
 
-  
   const { loading, data, error } = useQuery(getGhana);
 
-  
+  function onClickNews(item){
+      navigation.navigate("News", {...item})
+  }
   return (
     <View style={styles.container}>
       <Header>
@@ -50,7 +51,12 @@ export default function HomeScreen() {
           <FlatList
             scrollEnabled={false}
             data={News}
-            renderItem={({ item }) => <NewsComponent {...item} />}
+            renderItem={({ item }) => (
+                <TouchableWithoutFeedback onPress={() => onClickNews(item)}>
+                  <NewsComponent onClickNews={onClickNews} {...item} />
+                </TouchableWithoutFeedback>
+            )
+          }
             keyExtractor={item => item.id.toString()}
           />
         </View>
