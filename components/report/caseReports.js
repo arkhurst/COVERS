@@ -1,24 +1,54 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Animated } from 'react-native';
+import { Swipeable, TouchableOpacity } from 'react-native-gesture-handler'
 import FAB from 'react-native-fab';
 import { Ionicons } from '@expo/vector-icons';
 import { useIsFocused } from '@react-navigation/native';
-import { covertDateTime } from '../../constants/constants';
+import { covertDateTime, width } from '../../constants/constants';
 import ReportModal from '../../screens/report/reportModal';
 import { height } from '../../constants/constants';
+import { removeCaseReport,reports } from '../../context/GlobalState';
 
 export default function CaseReports({ reportFor, contact, description, date }) {
   const [visible, setVisible] = useState(false);
   const isFocused = useIsFocused();
 
+
+
   function close() {
     setVisible(false);
   }
+
+ 
+
+  function rightActions(dragX, index){
+
+    const scale = dragX.interpolate({
+      inputRange: [-100,0],
+      outputRange:[1,0.9],
+      extrapolate:"clamp"
+    })
+ 
+    const opacity = dragX.interpolate({
+      inputRange: [-100, -20, 0],
+      outputRange: [1, 0.9, 0],
+      extrapolate:"clamp"
+    })
+
+    return (
+      <TouchableOpacity >
+        <Animated.View style={[styles.deleteItem, {opacity:opacity }]}>
+          <Animated.Text style={{color:'#fff', fontWeight:"bold", transform:[{scale }]}}>Delete</Animated.Text>
+        </Animated.View>
+      </TouchableOpacity>
+    )
+  }
   return (
-    <View>
+    <View style={{borderBottomWidth:StyleSheet.hairlineWidth, borderColor:'#dedede'}}>
+      <Swipeable renderRightActions={(_, dragX) => rightActions(dragX)} >
       <View style={styles.container}>
         <View
-          style={{
+          style={{ 
             flexDirection: 'row',
             justifyContent: 'space-between',
             marginVertical: 10,
@@ -29,6 +59,7 @@ export default function CaseReports({ reportFor, contact, description, date }) {
         <Text style={styles.book}>{description}</Text>
         <Text style={styles.book}>{contact}</Text>
       </View>
+      </Swipeable>
       <FAB
         onClickAction={() => setVisible(true)}
         style={{
@@ -49,7 +80,7 @@ export default function CaseReports({ reportFor, contact, description, date }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 15,
+    marginVertical: 5,
     marginHorizontal: 20,
   },
   mainText: {
@@ -67,4 +98,11 @@ const styles = StyleSheet.create({
     letterSpacing: -0.3,
     fontSize: 14,
   },
+  deleteItem:{
+    backgroundColor:'red',
+    width:80,
+    height:87,
+    justifyContent:"center",
+    alignItems:'center'
+  }
 });

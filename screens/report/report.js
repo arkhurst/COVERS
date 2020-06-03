@@ -7,8 +7,6 @@ import * as reportAnim from '../../assets/lottie/reports.json';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { GlobalContext } from '../../context/GlobalState';
 import { useIsFocused } from '@react-navigation/native';
-import FAB from 'react-native-fab';
-import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import ReportModal from './reportModal';
 import CaseReports from '../../components/report/caseReports';
 import { width, height} from '../../constants/constants';
@@ -33,11 +31,10 @@ export default function ReportScreen() {
       </Header> 
       {/* Check if reports has items */}
       {reports.length > 0 ? (
-      
         <View>
           {reports.map(report => (
              <View>
-              <CaseReports key={report.id} {...report} />
+              <CaseReports key={report.id}   {...report} />
             </View>
           ))}
         </View>
