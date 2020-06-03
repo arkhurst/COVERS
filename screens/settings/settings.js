@@ -11,7 +11,7 @@ import AssessmentModal from './modals/assessmentModal';
 import FAQModal from './modals/FAQModal';
 import TestinCenters from './modals/testingCenter';
 import ProfileModal from '../../components/header/profileModal';
-import Audio from './modals/audio';
+import WorldWide from './modals/worldWide';
 import Share from './modals/share';
 
 export default function SettingsScreen() {
@@ -19,7 +19,7 @@ export default function SettingsScreen() {
   const [showFAQ, setFAQ] = useState(false);
   const [showTesting, setTesting] = useState(false);
   const [showProfile, setProfile] = useState(false);
-  const [showAudio, setAudio] = useState(false);
+  const [showWorld, setWorld] = useState(false);
   const [showShare, setShare] = useState(false);
 
   function open(value) {
@@ -30,7 +30,7 @@ export default function SettingsScreen() {
     } else if (value === 3) {
       return setTesting(true);
     } else if (value === 4) {
-      return setAudio(true);
+      return setWorld(true);
     } else if (value === 5) {
       return setShare(true);
     } else {
@@ -45,7 +45,7 @@ export default function SettingsScreen() {
     } else if (value === 3) {
       return setTesting(false);
     } else if (value === 4) {
-      return setAudio(false);
+      return setWorld(false);
     } else if (value === 5) {
       return setShare(false);
     } else {
@@ -94,10 +94,10 @@ export default function SettingsScreen() {
         />
         <ProfileModal visible={showProfile} cancel={close} />
       </TouchableOpacity>
-      {/* Audio */}
+      {/* World Wide Stats */}
       <TouchableOpacity onPress={() => open(4)}>
-        <SettingsCard title="Audio" body="Listen to audio" />
-        <Audio visible={showAudio} close={close} />
+        <SettingsCard title="World Wide Stats" body="See what's going on around the world" />
+        <WorldWide visible={showWorld} close={close} />
       </TouchableOpacity>
       {/* Share */}
       <TouchableOpacity onPress={() => open(5)}>

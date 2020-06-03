@@ -79,15 +79,15 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   headerText: {
-    fontSize: 15,
+    fontSize: 16,
     fontFamily: 'AirbnbCereal-Bold',
-    letterSpacing: -0.8,
+    letterSpacing: -0.5,
   },
   updatedTime: {
-    fontSize: 11,
+    fontSize: 12,
     color: 'grey',
     fontFamily: 'AirbnbCereal-Bold',
-    letterSpacing: -0.8,
+    letterSpacing: -0.3,
   },
   lottie: {
       height:height*0.6

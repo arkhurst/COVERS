@@ -52,8 +52,8 @@ export default function({ data }) {
 
 const styles = StyleSheet.create({
   image: {
-    height: 200,
-    width: 330,
+    height: 180,
+    width: 300,
     borderRadius: 10,
     marginHorizontal: 10,
     marginVertical: 20,
