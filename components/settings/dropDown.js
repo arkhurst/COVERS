@@ -5,17 +5,26 @@ import {
   Text,
   TouchableWithoutFeedback,
 } from 'react-native';
+import { useQuery } from '@apollo/react-hooks';
 import Card from './worldWideCard';
 import { Ionicons } from '@expo/vector-icons';
 import CountryPicker from 'react-native-country-picker-modal';
 import CountryStats from './countryStats';
+import { getGhana } from '../../queries/queries';
+import {covertDateTime} from '../../constants/constants';
 
 
 export default function DropdownComponent() {
-
+  
+  const { data, loading, error} = useQuery(getGhana)
   const [countries, setCountries] = useState(null);
-  const [countryCode, setCountryCode] = useState('GH');
-  const [country, setCountry] = useState( 'Ghana');
+
+  console.log(data.result)
+  const [country, setCountry] = useState({
+      name:"Ghana",
+      countryCode:'GH',
+      result: data.country.result
+  });
 
   const [withCountryNameButton, setWithCountryNameButton] = useState(false);
 
@@ -34,7 +43,7 @@ export default function DropdownComponent() {
             <View style={styles.countryContainer}>
             <CountryPicker
                     {...{
-                      countryCode,
+                      countryCode :country.countryCode,
                       country,
                       withFlag,
                       withCountryNameButton,
@@ -44,10 +53,10 @@ export default function DropdownComponent() {
                       onSelect: (value, num = 1) => onSelect(value, num),
                     }}
                   />
-                  {country.name == null ? (
-                    <Text style={styles.mainText}>{country}</Text>
-                  ) : (
+                  {country.name.name == null ? (
                     <Text style={styles.mainText}>{country.name}</Text>
+                  ) : (
+                    <Text style={styles.mainText}>{country.name.name}</Text>
                   )}
             </View>
             <View style={{paddingTop:10}}>
@@ -56,9 +65,9 @@ export default function DropdownComponent() {
           </Card>
         </View>
       </TouchableWithoutFeedback> 
-      <CountryStats />
+      <CountryStats country={country} />
       <View style={styles.dateContainer}>
-          <Text style={{ color: 'grey' }}>Last Updated:</Text>
+                  <Text style={{ color: 'grey' }}>Last Updated: {covertDateTime(country.result.updated)}</Text>
         </View>
     </View>
   );

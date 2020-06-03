@@ -46,6 +46,10 @@ query {
                 recovered
                 deaths
                 updated
+                active
+                critical
+                tests
+                updated
             }
         }
         
