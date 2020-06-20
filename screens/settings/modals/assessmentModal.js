@@ -17,7 +17,7 @@ export default function AssessmentModal({ close, visible }) {
         <View
           style={{
             borderBottomWidth: StyleSheet.hairlineWidth,
-            borderColor: '#dedede',
+            borderColor: colors.borderColor,
           }}>
           <View style={styles.header}>
             <Text style={styles.headerTitle}>Self Assessment</Text>

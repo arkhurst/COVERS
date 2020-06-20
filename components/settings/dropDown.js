@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { View, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import Card from './worldWideCard';
 import { Ionicons } from '@expo/vector-icons';
 import CountryPicker from 'react-native-country-picker-modal';
 import CountryStats from './countryStats';
 import { getGhana } from '../../queries/queries';
-import {covertDateTime} from '../../constants/constants';
+import { covertDateTime } from '../../constants/constants';
 import colors from '../../constants/colors';
 
 export default function DropdownComponent() {
-  
-  const { data, loading, error} = useQuery(getGhana)
-  const [countries, setCountries] = useState(null);
+  const { data, loading, error } = useQuery(getGhana);
+  // const [countries, setCountries] = useState(null);
 
-  console.log(data.result)
+  console.log(data.result);
   const [country, setCountry] = useState({
-      name:"Ghana",
-      countryCode:'GH',
-      result: data.country.result
+    name: 'Ghana',
+    countryCode: 'GH',
+    result: data.country.result,
   });
 
   const [withCountryNameButton, setWithCountryNameButton] = useState(false);
@@ -33,42 +27,42 @@ export default function DropdownComponent() {
   const [withAlphaFilter, setWithAlphaFilter] = useState(false);
   const [withCallingCode, setWithCallingCode] = useState(false);
 
-
-
   return (
     <View>
       <TouchableWithoutFeedback>
         <View style={{ margin: 10 }}>
           <Card style={styles.container}>
             <View style={styles.countryContainer}>
-            <CountryPicker
-                    {...{
-                      countryCode :country.countryCode,
-                      country,
-                      withFlag,
-                      withCountryNameButton,
-                      withAlphaFilter,
-                      withCallingCode,
-                      withEmoji,
-                      onSelect: (value, num = 1) => onSelect(value, num),
-                    }}
-                  />
-                  {country.name.name == null ? (
-                    <Text style={styles.mainText}>{country.name}</Text>
-                  ) : (
-                    <Text style={styles.mainText}>{country.name.name}</Text>
-                  )}
+              <CountryPicker
+                {...{
+                  countryCode: country.countryCode,
+                  country,
+                  withFlag,
+                  withCountryNameButton,
+                  withAlphaFilter,
+                  withCallingCode,
+                  withEmoji,
+                  onSelect: (value, num = 1) => onSelect(value, num),
+                }}
+              />
+              {country.name.name == null ? (
+                <Text style={styles.mainText}>{country.name}</Text>
+              ) : (
+                <Text style={styles.mainText}>{country.name.name}</Text>
+              )}
             </View>
-            <View style={{paddingTop:10}}>
+            <View style={{ paddingTop: 10 }}>
               <Ionicons name="ios-arrow-down" size={18} color={colors.grey} />
             </View>
           </Card>
         </View>
-      </TouchableWithoutFeedback> 
+      </TouchableWithoutFeedback>
       <CountryStats country={country} />
       <View style={styles.dateContainer}>
-                  <Text style={{ color: colors.grey }}>Last Updated: {covertDateTime(country.result.updated)}</Text>
-        </View>
+        <Text style={{ color: colors.grey }}>
+          Last Updated: {covertDateTime(country.result.updated)}
+        </Text>
+      </View>
     </View>
   );
 }
@@ -81,7 +75,7 @@ const styles = StyleSheet.create({
   },
   countryContainer: {
     flexDirection: 'row',
-    alignItems:'center'
+    alignItems: 'center',
   },
   dateContainer: {
     alignSelf: 'flex-end',
@@ -92,6 +86,5 @@ const styles = StyleSheet.create({
   mainText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-  }
+  },
 });
-

@@ -70,7 +70,7 @@ export default function Onboarding({ navigation }) {
           ) : (
             <TouchableOpacity onPress={handleButton} style={styles.button}>
               {loading ? (
-                <ActivityIndicator color="white" />
+                <ActivityIndicator color={colors.white} />
               ) : (
                 <Text style={styles.minorText}>Get Started</Text>
               )}

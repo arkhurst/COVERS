@@ -2,13 +2,12 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Card from './worldWideCard';
 import { Ionicons } from '@expo/vector-icons';
-import {addCommas} from '../../constants/constants';
+import { addCommas } from '../../constants/constants';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
 
-
 function CountryStats(props) {
-  const { country } = props
+  const { country } = props;
   return (
     <Card style={styles.overCont}>
       <View style={styles.countryStatsContainer}>
@@ -25,14 +24,14 @@ function CountryStats(props) {
               Confirmed
             </Text>
             <Text style={styles.numbers}>
-             { addCommas(country?.result?.cases) || 'N/A'}
+              {addCommas(country?.result?.cases) || 'N/A'}
             </Text>
           </View>
           {/* Active cases */}
           <View style={[styles.statsItems, styles.spacing]}>
             <Text style={{ color: 'gold', fontWeight: '600' }}>Active</Text>
             <Text style={styles.numbers}>
-            { addCommas(country?.result?.active) || 'N/A'}
+              {addCommas(country?.result?.active) || 'N/A'}
             </Text>
           </View>
         </View>
@@ -43,14 +42,14 @@ function CountryStats(props) {
               Recovered
             </Text>
             <Text style={styles.numbers}>
-            { addCommas(country?.result?.recovered) || 'N/A'}
+              {addCommas(country?.result?.recovered) || 'N/A'}
             </Text>
           </View>
           {/* Critical cases */}
           <View style={[styles.statsItems, styles.spacing]}>
             <Text style={{ color: 'tomato', fontWeight: '600' }}>Critical</Text>
             <Text style={styles.numbers}>
-            { addCommas(country?.result?.critical) || 'N/A'}
+              {addCommas(country?.result?.critical) || 'N/A'}
             </Text>
           </View>
         </View>
@@ -59,14 +58,14 @@ function CountryStats(props) {
           <View style={styles.statsItems}>
             <Text style={{ color: 'tomato', fontWeight: '500' }}>Deaths</Text>
             <Text style={styles.numbers}>
-              { addCommas(country?.result?.deaths) || 'N/A'}
+              {addCommas(country?.result?.deaths) || 'N/A'}
             </Text>
           </View>
           {/* Tests */}
           <View style={[styles.statsItems, styles.spacing]}>
             <Text style={{ color: 'teal', fontWeight: '600' }}>Tests</Text>
             <Text style={styles.numbers}>
-            { addCommas(country?.result?.tests) || 'N/A'}
+              {addCommas(country?.result?.tests) || 'N/A'}
             </Text>
           </View>
         </View>

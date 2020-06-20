@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View ,Image} from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
 import Modal from 'react-native-modalbox';
@@ -9,13 +9,10 @@ import { Notification } from '../../data/data';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
 
-
-
-
-const Header = props => {
+const Header = (props) => {
   const [visible, setVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [notifications, setNotification] = useState(false)
+  const [notifications, setNotification] = useState(false);
 
   const open = () => {
     setIsOpen(true);
@@ -43,7 +40,7 @@ const Header = props => {
     <View style={styles.container}>
       <View style={styles.firstContainer}>
         <TouchableOpacity onPress={openModal}>
-          <Ionicons name="ios-contact" size={39} />
+           <Image style={{width:50, height:50, borderRadius:25}} source={require('../../assets/male.jpeg')} />
           <ProfileModal visible={visible} cancel={cancel} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{props.children}</Text>
@@ -61,19 +58,24 @@ const Header = props => {
           <View style={styles.notsContainer}>
             <Text style={styles.notsTitle}>Notifications</Text>
             {!notifications ? (
-               <View style={styles.emptyNotification}>
-                 <Ionicons name="ios-information-circle-outline" size={24} color={colors.noNotifs} />
-                 <Text style={{fontFamily: 'AirbnbCereal-Medium', paddingLeft:5}}>Sorry, there are no notifications.</Text>
+              <View style={styles.emptyNotification}>
+                <Ionicons
+                  name="ios-information-circle-outline"
+                  size={24}
+                  color={colors.noNotifs}
+                />
+                <Text
+                  style={{ fontFamily: 'AirbnbCereal-Medium', paddingLeft: 5 }}>
+                  Sorry, there are no notifications.
+                </Text>
               </View>
-            ):(
+            ) : (
               <FlatList
                 data={Notification}
                 renderItem={({ item }) => <MessageList {...item} />}
-                keyExtractor={item => item.id.toString()}
-            />
+                keyExtractor={(item) => item.id.toString()}
+              />
             )}
-          
-           
           </View>
         </Modal>
       </TouchableOpacity>
@@ -132,16 +134,16 @@ const styles = StyleSheet.create({
     fontFamily: 'AirbnbCereal-Book',
     letterSpacing: -0.2,
   },
-  emptyNotification:{
-    height:55,
-    width:'70%',
-    flexDirection:'row',
-     paddingHorizontal:10,
-    alignItems:"center",
-    backgroundColor:colors.backgroundColor,
-    marginTop:20,
-    marginHorizontal:55
-  }
+  emptyNotification: {
+    height: 55,
+    width: '70%',
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    backgroundColor: colors.backgroundColor,
+    marginTop: 20,
+    marginHorizontal: 55,
+  },
 });
 
 export default Header;

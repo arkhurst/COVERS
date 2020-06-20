@@ -9,7 +9,7 @@ export default function General({ navigation }) {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {GeneralInfo.map(general => (
+        {GeneralInfo.map((general) => (
           <View key={general.id} style={{ marginVertical: 20 }}>
             <Text style={styles.mainTitle}>{general.title}</Text>
             <Text>{general.info}</Text>

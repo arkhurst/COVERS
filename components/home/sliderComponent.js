@@ -6,10 +6,10 @@ import ProgressiveImage from '../progressive_image/progressiveImage';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
 
-export default function({ data }) {
+export default function ({ data }) {
   return (
     <ScrollView horizontal>
-      {/* Confirmed cases */} 
+      {/* Confirmed cases */}
       <View>
         <ProgressiveImage
           thumbnailSource={require('../../assets/placeholder.png')}

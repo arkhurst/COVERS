@@ -23,7 +23,7 @@ export default function FAQComponent() {
   //     setState({ collapsed: !state.collapsed });
   //   };
 
-  const setSections = sections => {
+  const setSections = (sections) => {
     setState({
       activeSections: sections.includes(undefined) ? [] : sections,
     });
@@ -98,7 +98,6 @@ const styles = StyleSheet.create({
   },
   inactive: {
     // backgroundColor: 'rgba(255,255,255,1)',
-
   },
   active: {
     // backgroundColor: 'rgba(245,252,255,1)',
