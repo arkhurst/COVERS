@@ -6,45 +6,45 @@ import ProgressiveImage from '../progressive_image/progressiveImage';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
 
-export default function ({ data }) {
+export default function SliderComponent ({ data }) {
   return (
     <ScrollView horizontal>
       {/* Confirmed cases */}
       <View>
         <ProgressiveImage
-          thumbnailSource={require('../../assets/placeholder.png')}
+          // thumbnailSource={require('../../assets/placeholder.png')}
           source={require('../../assets/virus.png')}
           style={styles.image}
           resizeMode="cover"
         />
         <Text style={styles.number}>
-          {addCommas(data?.country?.result?.cases) || 'N/A'}
+          {addCommas(data?.data?.country?.result?.cases) || 'N/A'}
         </Text>
         <Text style={styles.status}>Confirmed Cases</Text>
       </View>
       {/* Recovered */}
       <View>
         <ProgressiveImage
-          thumbnailSource={require('../../assets/placeholder.png')}
+          // thumbnailSource={require('../../assets/placeholder.png')}
           source={require('../../assets/recovered.jpg')}
           style={styles.image}
           resizeMode="cover"
         />
         <Text style={styles.number}>
-          {addCommas(data?.country?.result?.recovered) || 'N/A'}
+          {addCommas(data?.data?.country?.result?.recovered) || 'N/A'}
         </Text>
         <Text style={styles.status}>Recovered</Text>
       </View>
       {/* Deaths */}
       <View>
         <ProgressiveImage
-          thumbnailSource={require('../../assets/placeholder.png')}
+          // thumbnailSource={require('../../assets/placeholder.png')}
           source={require('../../assets/deaths.jpeg')}
           style={styles.image}
           resizeMode="c"
         />
         <Text style={styles.number}>
-          {addCommas(data?.country?.result?.deaths) || 'N/A'}
+          {addCommas(data?.data?.country?.result?.deaths) || 'N/A'}
         </Text>
         <Text style={styles.status}>Deaths</Text>
       </View>

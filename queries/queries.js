@@ -1,6 +1,39 @@
-import { gql } from 'apollo-boost';
 
-const getCountry = gql`
+
+const CountryQuery = `
+query {
+ countries {
+     country
+     countryInfo {
+         _id
+         lat
+         long
+         flag
+         iso3
+         iso2
+     }
+     continent
+     result {
+         tests
+         cases
+         todayCases
+         deaths
+         todayDeaths
+         recovered
+         active
+         critical
+         casesPerOneMillion
+         deathsPerOneMillion
+         testsPerOneMillion
+         updated
+     }
+ }
+}
+
+
+`;
+
+const getCountry = `
 query {
     countries {
         country
@@ -17,7 +50,7 @@ query {
   }
 `
 
-const getGlobal = gql`
+const getGlobal = `
 query{
     globalTotal {
         affectedCountries
@@ -37,7 +70,7 @@ query{
   }
   
 `
-const getGhana = gql`
+const getGhana = `
 query {
         country(name:"Ghana"){
             country
@@ -56,4 +89,4 @@ query {
     }
 `
 
-export { getCountry, getGlobal, getGhana }
+export { getCountry, getGlobal, getGhana,CountryQuery }

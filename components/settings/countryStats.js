@@ -8,6 +8,7 @@ import colors from '../../constants/colors';
 
 function CountryStats(props) {
   const { country } = props;
+  
   return (
     <Card style={styles.overCont}>
       <View style={styles.countryStatsContainer}>

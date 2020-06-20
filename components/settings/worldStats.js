@@ -2,14 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Fontisto } from '@expo/vector-icons';
 import Card from './worldWideCard';
-import { getGlobal } from '../../queries/queries';
-import { useQuery } from '@apollo/react-hooks';
 import { addCommas } from '../../constants/constants';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
 
-function WorldWideStats() {
-  const { data, loading, error } = useQuery(getGlobal);
+function WorldWideStats({data}) {
   return (
     <Card style={styles.container}>
       <View style={styles.worldStatsContainer}>
@@ -22,25 +19,25 @@ function WorldWideStats() {
             fontFamily: 'AirbnbCereal-Bold',
           }}>
           Worldwide Statistics
-        </Text>
+        </Text> 
       </View>
       <View style={styles.statsItemsContainer}>
         <View style={styles.statsItems}>
           <Text style={{ color: '#4847d6', fontWeight: '500' }}>Confirmed</Text>
           <Text style={styles.numbers}>
-            {addCommas(data?.globalTotal?.cases) || 'N/A'}
+            {addCommas(data?.data?.globalTotal?.cases) || 'N/A'}
           </Text>
         </View>
         <View style={styles.statsItems}>
           <Text style={{ color: '#62975f', fontWeight: '500' }}>Recovered</Text>
           <Text style={styles.numbers}>
-            {addCommas(data?.globalTotal?.recovered) || 'N/A'}
+            {addCommas(data?.data?.globalTotal?.recovered) || 'N/A'}
           </Text>
         </View>
         <View style={[styles.statsItems, styles.lastItem]}>
           <Text style={{ color: 'tomato', fontWeight: '500' }}>Deaths</Text>
           <Text style={styles.numbers}>
-            {addCommas(data?.globalTotal?.deaths) || 'N/A'}
+            {addCommas(data?.data?.globalTotal?.deaths) || 'N/A'}
           </Text>
         </View>
       </View>

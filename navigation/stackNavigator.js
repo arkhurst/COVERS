@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 
 export default function StackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName={"Tabs"}>
       <Stack.Screen 
          name="Onboarding"
          component={Onboarding}
