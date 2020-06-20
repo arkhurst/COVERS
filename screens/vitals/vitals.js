@@ -9,6 +9,7 @@ import VitalsModal from './vitalsModal';
 import { GlobalContext } from '../../context/GlobalState';
 import { width, height } from '../../constants/constants';
 import UserSymptoms from '../../components/vitals/userSymptoms';
+import colors from '../../constants/colors';
 
 export default function VitalScreen() {
   const [visible, setVisible] = useState(false);
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: 'white',
+    backgroundColor:colors.backgroundColor,
   },
   lottieContainer: {
     alignItems: 'center',
@@ -93,6 +94,6 @@ const styles = StyleSheet.create({
   mainText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    color: 'grey',
+    color: colors.grey
   },
 });

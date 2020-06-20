@@ -5,6 +5,7 @@ import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
 import { width, height } from '../../constants/constants';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { GlobalContext } from '../../context/GlobalState';
+import colors from '../../constants/colors';
 
 export default function Verification({ navigation }) {
   const { phoneNumber, deletePhoneNumber } = useContext(GlobalContext);
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: 'white',
+    backgroundColor: colors.backgroundColor,
   },
   body: {
     justifyContent: 'center',
@@ -98,12 +99,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 54,
-    backgroundColor: 'black',
+    backgroundColor: colors.button,
     width: width * 0.7,
   },
   btnText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.5,
-    color: 'white',
+    color: colors.white,
   },
 });

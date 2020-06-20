@@ -10,7 +10,7 @@ import { useIsFocused } from '@react-navigation/native';
 import ReportModal from './reportModal';
 import CaseReports from '../../components/report/caseReports';
 import { width, height} from '../../constants/constants';
-
+import colors from '../../constants/colors';
 
 
 export default function ReportScreen() {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: 'white',
+    backgroundColor: colors.backgroundColor,
   },
   lottieContainer: {
     alignItems: 'center',
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   mainText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    color: 'grey',
+    color: colors.grey,
   },
   mainTitle: {
     fontFamily: 'AirbnbCereal-Bold',

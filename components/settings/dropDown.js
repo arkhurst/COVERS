@@ -12,7 +12,7 @@ import CountryPicker from 'react-native-country-picker-modal';
 import CountryStats from './countryStats';
 import { getGhana } from '../../queries/queries';
 import {covertDateTime} from '../../constants/constants';
-
+import colors from '../../constants/colors';
 
 export default function DropdownComponent() {
   
@@ -60,14 +60,14 @@ export default function DropdownComponent() {
                   )}
             </View>
             <View style={{paddingTop:10}}>
-              <Ionicons name="ios-arrow-down" size={18} color="grey" />
+              <Ionicons name="ios-arrow-down" size={18} color={colors.grey} />
             </View>
           </Card>
         </View>
       </TouchableWithoutFeedback> 
       <CountryStats country={country} />
       <View style={styles.dateContainer}>
-                  <Text style={{ color: 'grey' }}>Last Updated: {covertDateTime(country.result.updated)}</Text>
+                  <Text style={{ color: colors.grey }}>Last Updated: {covertDateTime(country.result.updated)}</Text>
         </View>
     </View>
   );

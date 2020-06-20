@@ -5,6 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { height } from '../../../constants/constants';
 import font_sizes from '../../../constants/font_sizes';
+import colors from '../../../constants/colors';
 
 export default function AssessmentModal({ close, visible }) {
   return (
@@ -50,7 +51,7 @@ export default function AssessmentModal({ close, visible }) {
         </View>
         <View style={{ marginTop: height * 0.34 }}>
           <TouchableOpacity style={styles.button}>
-            <Text style={([styles.mainTitle], { color: 'white' })}>
+            <Text style={([styles.mainTitle], { color: colors.white })}>
               Start Assessment...
             </Text>
           </TouchableOpacity>
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    fontSize: 32,
+    fontSize: font_sizes.h1,
   },
   mainTitle: {
     fontFamily: 'AirbnbCereal-Bold',
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 53,
-    backgroundColor: 'black',
+    backgroundColor: colors.button,
     justifyContent: 'center',
     alignItems: 'center',
   },

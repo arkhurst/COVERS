@@ -4,6 +4,8 @@ import Constants from 'expo-constants';
 import FAQComponent from '../../../components/settings/faq';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import font_sizes from '../../../constants/font_sizes';
+
 
 export default function FAQModal({ close, visible }) {
   return (
@@ -36,6 +38,6 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    fontSize: 32,
+    fontSize: font_sizes.h1,
   },
 });

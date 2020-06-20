@@ -10,6 +10,7 @@ import { FontAwesome5, Entypo } from '@expo/vector-icons';
 import ProgressiveImage from '../../components/progressive_image/progressiveImage';
 import { height } from '../../constants/constants';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 export default function NewsDetails({ navigation, route }) {
   const { title, body, source, image } = route.params;
@@ -24,7 +25,7 @@ export default function NewsDetails({ navigation, route }) {
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         style={styles.button}>
-        <Entypo name="chevron-small-left" size={26} color="tomato" />
+        <Entypo name="chevron-small-left" size={26} color={colors.tomato} />
       </TouchableOpacity>
       <View style={styles.bodyContainer}>
         <Text style={{ fontFamily: 'AirbnbCereal-Bold', fontSize: 20 }}>
@@ -61,11 +62,11 @@ export default function NewsDetails({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor:colors.backgroundColor,
   },
   bodyContainer: {
     height: '100%',
-    shadowColor: '#000',
+    shadowColor:colors.black,
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 1 },
     marginTop: -10,
@@ -81,8 +82,9 @@ const styles = StyleSheet.create({
     top: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: 'black',
+    shadowColor: colors.black,
     shadowOffset: { x: 0, y: 1 },
     shadowOpacity: 0.4,
+    elevation:3
   },
 });

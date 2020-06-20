@@ -13,6 +13,7 @@ import TestinCenters from './modals/testingCenter';
 import ProfileModal from '../../components/header/profileModal';
 import WorldWide from './modals/worldWide';
 import Share from './modals/share';
+import colors from '../../constants/colors';
 
 export default function SettingsScreen() {
   const [showAssessment, setAssessment] = useState(false);
@@ -115,6 +116,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: 'white',
+    backgroundColor: colors.backgroundColor,
   },
 });

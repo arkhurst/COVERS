@@ -6,6 +6,7 @@ import { getGlobal } from '../../queries/queries';
 import { useQuery } from "@apollo/react-hooks";
 import { addCommas } from '../../constants/constants';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 
 function WorldWideStats() {
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
   statsItems: {
     justifyContent: 'space-between',
     borderRightWidth: StyleSheet.hairlineWidth,
-    borderColor: 'grey',
+    borderColor: colors.borderColor,
     paddingRight: 20,
     paddingHorizontal: 6,
   },

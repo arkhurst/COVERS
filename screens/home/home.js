@@ -16,7 +16,7 @@ import { getGhana } from '../../queries/queries';
 import { covertDateTime,height  } from '../../constants/constants';
 import SliderComponent from '../../components/home/sliderComponent';
 import NewsComponent from '../../components/home/newsComponent';
-
+import colors from '../../constants/colors';
 
 
 export default function HomeScreen({navigation}) {
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: 'white',
+    backgroundColor: colors.backgroundColor,
   },
   bodyContainer: {
     marginHorizontal: 15,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   updatedTime: {
     fontSize: 12,
-    color: 'grey',
+    color: colors.grey,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.3,
   },

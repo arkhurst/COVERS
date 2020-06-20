@@ -7,6 +7,8 @@ import ProfileModal from './profileModal';
 import { height } from '../../constants/constants';
 import { Notification } from '../../data/data';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
+
 
 
 
@@ -28,7 +30,7 @@ const Header = props => {
 
   const MessageList = ({ message, sentAt }) => {
     return (
-      <View style={{ borderBottomWidth: 0.8, borderColor: '#dedede' }}>
+      <View style={{ borderBottomWidth: 0.8, borderColor: colors.borderColor }}>
         <View style={styles.messageList}>
           <Text style={styles.mainText}>{message}</Text>
           <Text style={styles.mainText}>{sentAt}</Text>
@@ -60,7 +62,7 @@ const Header = props => {
             <Text style={styles.notsTitle}>Notifications</Text>
             {!notifications ? (
                <View style={styles.emptyNotification}>
-                 <Ionicons name="ios-information-circle-outline" size={24} color="tomato" />
+                 <Ionicons name="ios-information-circle-outline" size={24} color={colors.noNotifs} />
                  <Text style={{fontFamily: 'AirbnbCereal-Medium', paddingLeft:5}}>Sorry, there are no notifications.</Text>
               </View>
             ):(
@@ -82,9 +84,9 @@ const Header = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: 'white',
+    backgroundColor: colors.backgroundColor,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#dedede',
+    borderColor: colors.borderColor,
     justifyContent: 'space-between',
     height: height * 0.14,
     paddingHorizontal: 20,
@@ -103,10 +105,10 @@ const styles = StyleSheet.create({
 
   modal: {
     height: height * 0.9,
-    backgroundColor: 'whitesmoke',
+    backgroundColor: colors.secondaryBackgroundColor,
     marginTop: 70,
     borderRadius: 20,
-    shadowColor: 'black',
+    shadowColor: colors.black,
     shadowOffset: { x: 0, y: 1 },
     shadowOpacity: 0.5,
     elevation: 4,
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
      paddingHorizontal:10,
     alignItems:"center",
-    backgroundColor:'#fff',
+    backgroundColor:colors.backgroundColor,
     marginTop:20,
     marginHorizontal:55
   }

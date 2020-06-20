@@ -13,6 +13,7 @@ import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { width } from '../../constants/constants';
 import { GlobalContext } from '../../context/GlobalState';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 export default function Onboarding({ navigation }) {
   const [phoneNumber, setphoneNumber] = useState('');
@@ -95,15 +96,15 @@ const styles = StyleSheet.create({
     fontSize: 55,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.8,
-    color: 'white',
+    color: colors.white,
   },
   mainText: {
     fontSize: font_sizes.t3,
     fontWeight: 'bold',
-    color: 'white',
+    color: colors.white,
   },
   minorText: {
-    color: 'white',
+    color: colors.white,
     textAlign: 'center',
     fontWeight: '500',
     paddingTop: 5,
@@ -113,12 +114,12 @@ const styles = StyleSheet.create({
     width: width * 0.8,
     marginVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   phone: {
     position: 'absolute',
     top: 65,
-    left: 220,
+    left: width * 0.52,
     fontWeight: '500',
   },
   initialButtonState: {

@@ -15,6 +15,7 @@ import CountryPicker from 'react-native-country-picker-modal';
 import RadioButtonRN from 'radio-buttons-react-native';
 import { width, height } from '../../constants/constants';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 export default function ProfileModal({ visible, cancel }) {
   const [countryCode, setCountryCode] = useState('GH');
@@ -82,8 +83,8 @@ export default function ProfileModal({ visible, cancel }) {
                 circleSize={16}
                 initial={3}
                 box={false}
-                activeColor="black"
-                inactiveColor="grey"
+                activeColor={colors.black}
+                inactiveColor={colors.grey}
                 textStyle={{
                   fontFamily: 'AirbnbCereal-Bold',
                   letterSpacing: -0.4,
@@ -163,7 +164,7 @@ export default function ProfileModal({ visible, cancel }) {
               {load ? (
                 <ActivityIndicator />
               ) : (
-                <Text style={([styles.mainText], { color: 'white' })}>
+                <Text style={([styles.mainText], { color: colors.white })}>
                   Update Profile
                 </Text>
               )}
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
   mainText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    color: 'grey',
+    color: colors.grey,
   },
   detailsItem: {
     paddingTop: 20,
@@ -209,7 +210,7 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     height: 50,
     marginVertical: 10,
-    borderColor: '#dedede',
+    borderColor: colors.borderColor,
     paddingHorizontal: 20,
   },
   countryContainer: {
@@ -223,12 +224,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1.5,
     marginHorizontal: 5,
-    borderColor: 'grey',
+    borderColor: colors.grey,
     justifyContent: 'center',
     alignItems: 'center',
   },
   button: {
-    backgroundColor: 'black',
+    backgroundColor: colors.button,
     justifyContent: 'center',
     alignItems: 'center',
     height: 52,

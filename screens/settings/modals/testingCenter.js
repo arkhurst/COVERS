@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import getDirections from 'react-native-google-maps-directions';
 import font_sizes from '../../../constants/font_sizes';
-
+import colors from '../../../constants/colors';
 
 export default function TestinCenters({close, visible}){
 
@@ -53,14 +53,14 @@ export default function TestinCenters({close, visible}){
                         <Ionicons  name="ios-close" size={40} />
                     </TouchableOpacity>
                 </View>
-               <View style={{borderBottomWidth:StyleSheet.hairlineWidth, borderColor:'#dedede'}}>
+               <View style={{borderBottomWidth:StyleSheet.hairlineWidth, borderColor:colors.borderColor}}>
                 <View style={styles.venueContainer}>
                     <View>
                         <Text style={styles.medium}>University of Ghana Medical School</Text>
-                        <Text style={{color:'grey', fontWeight:'600', paddingTop:6}} >Accra, Ghana</Text>
+                        <Text style={{color:colors.grey, fontWeight:'600', paddingTop:6}} >Accra, Ghana</Text>
                     </View>
                     <TouchableOpacity onPress={handleGetDirections}  >
-                         <Text style={{color:'tomato', fontWeight:'500'}}>Get Directions</Text>
+                         <Text style={{color:colors.tomato, fontWeight:'500'}}>Get Directions</Text>
                     </TouchableOpacity>
                 </View>
              </View> 

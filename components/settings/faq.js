@@ -11,6 +11,7 @@ import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
 import { FAQsContent } from '../../data/data';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 export default function FAQComponent() {
   const [state, setState] = useState({
@@ -76,7 +77,7 @@ export default function FAQComponent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: colors.backgroundColor,
   },
   header: {
     padding: 20,
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 20,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundColor,
     paddingVertical: 10,
   },
   contentText: {

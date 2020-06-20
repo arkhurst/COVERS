@@ -9,6 +9,7 @@ import ReportModal from '../../screens/report/reportModal';
 import { height } from '../../constants/constants';
 import { removeCaseReport,reports } from '../../context/GlobalState';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 export default function CaseReports({ reportFor, contact, description, date }) {
   const [visible, setVisible] = useState(false);
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   mainText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.6,
-    color: 'grey',
+    color: colors.grey,
   },
   mainTitle: {
     fontFamily: 'AirbnbCereal-Bold',

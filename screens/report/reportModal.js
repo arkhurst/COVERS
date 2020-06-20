@@ -13,6 +13,8 @@ import RadioButtonRN from 'radio-buttons-react-native';
 import Constants from 'expo-constants';
 import { width, height } from '../../constants/constants';
 import { GlobalContext } from '../../context/GlobalState';
+import colors from '../../constants/colors';
+import font_sizes from '../../constants/font_sizes';
 
 export default function ReportModal({ close, visible }) {
   const [load, setLoad] = useState(false);
@@ -71,8 +73,8 @@ export default function ReportModal({ close, visible }) {
               circleSize={16}
               initial={3}
               box={false}
-              activeColor="black"
-              inactiveColor="grey"
+              activeColor={colors.black}
+              inactiveColor={colors.grey}
               textStyle={{
                 fontFamily: 'AirbnbCereal-Bold',
                 letterSpacing: -0.4,
@@ -136,7 +138,7 @@ export default function ReportModal({ close, visible }) {
           {load ? (
             <ActivityIndicator />
           ) : (
-            <Text style={([styles.mainText], { color: 'white' })}>
+            <Text style={([styles.mainText], { color: colors.white})}>
               Report Case
             </Text>
           )}
@@ -159,7 +161,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    fontSize: 32,
+    fontSize: font_sizes.h1,
   },
   mainTitle: {
     fontFamily: 'AirbnbCereal-Bold',
@@ -173,7 +175,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: width * 0.35,
     marginVertical: 10,
-    borderColor: '#dedede',
+    borderColor: colors.borderColor,
     paddingHorizontal: 20,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
@@ -183,7 +185,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: width * 0.5,
     marginVertical: 10,
-    borderColor: '#dedede',
+    borderColor: colors.borderColor,
     paddingHorizontal: 20,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
@@ -192,14 +194,14 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     height: height * 0.11,
     marginVertical: 10,
-    borderColor: '#dedede',
+    borderColor: colors.borderColor,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
     paddingBottom: 60,
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: 'black',
+    backgroundColor: colors.button,
     justifyContent: 'center',
     alignItems: 'center',
     height: 52,
@@ -208,6 +210,6 @@ const styles = StyleSheet.create({
   mainText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    color: 'grey',
+    color: colors.grey,
   },
 });

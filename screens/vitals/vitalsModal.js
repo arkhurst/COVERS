@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Constants from 'expo-constants';
 import LogSymptoms from '../../components/vitals/logSymptoms';
+import font_sizes from '../../constants/font_sizes';
 
 export default function VitalsModal({ close, visible }) {
   return (
@@ -34,6 +35,6 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    fontSize: 32,
+    fontSize: font_sizes.h1,
   },
 });

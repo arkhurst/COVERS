@@ -10,6 +10,7 @@ import HomeScreen from '../screens/home/home';
 import ReportScreen from '../screens/report/report';
 import VitalScreen from '../screens/vitals/vitals';
 import SettingsScreen from '../screens/settings/settings';
+import colors from '../constants/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,8 +18,8 @@ const BottomTab = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: 'black',
-        inactiveTintColor: 'grey',
+        activeTintColor: colors.activeTabBar,
+        inactiveTintColor: colors.inactiveTabBar,
         labelStyle: {
           fontFamily: 'AirbnbCereal-Bold',
           letterSpacing: -0.2,
@@ -31,7 +32,7 @@ const BottomTab = () => {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ focused }) => (
-            <Entypo name="home" size={28} color={focused ? 'black' : 'grey'} />
+            <Entypo name="home" size={28} color={focused ? colors.activeTabBar : colors.inactiveTabBar} />
           ),
         }}
       />
@@ -44,7 +45,7 @@ const BottomTab = () => {
             <FontAwesome
               name="send"
               size={25}
-              color={focused ? 'black' : 'grey'}
+              color={focused ? colors.activeTabBar: colors.inactiveTabBar}
             />
           ),
         }}
@@ -58,7 +59,7 @@ const BottomTab = () => {
             <Ionicons
               name="ios-pulse"
               size={28}
-              color={focused ? 'black' : 'grey'}
+              color={focused ? colors.activeTabBar : colors.inactiveTabBar}
             />
           ),
         }}
@@ -72,7 +73,7 @@ const BottomTab = () => {
             <MaterialIcons
               name="settings"
               size={28}
-              color={focused ? 'black' : 'grey'}
+              color={focused ? colors.activeTabBar : colors.inactiveTabBar}
             />
           ),
         }}

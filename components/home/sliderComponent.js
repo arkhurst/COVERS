@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { addCommas } from '../../constants/constants';
+import { addCommas, height, width } from '../../constants/constants';
 import ProgressiveImage from '../progressive_image/progressiveImage';
+import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 export default function({ data }) {
   return (
@@ -52,8 +54,8 @@ export default function({ data }) {
 
 const styles = StyleSheet.create({
   image: {
-    height: 180,
-    width: 300,
+    height: height * 0.19,
+    width: width * 0.7,
     borderRadius: 10,
     marginHorizontal: 10,
     marginVertical: 20,
@@ -62,16 +64,16 @@ const styles = StyleSheet.create({
   number: {
     position: 'absolute',
     right: 30,
-    top: 35,
-    color: '#fff',
-    fontSize: 30,
+    top: 30,
+    color: colors.white,
+    fontSize: font_sizes.h2,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.8,
   },
   status: {
     position: 'absolute',
     right: 30,
-    top: 75,
+    top: 70,
     color: '#fff',
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.8,

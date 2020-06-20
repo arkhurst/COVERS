@@ -1,8 +1,10 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import ProgressiveImage from '../progressive_image/progressiveImage';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
+import { height, width } from '../../constants/constants';
 
 export default function NewsComponent(props) {
   const {title, image, onClickNews} = props
@@ -30,21 +32,22 @@ const styles = StyleSheet.create({
   newsContainer: {
     marginVertical:10,
     marginHorizontal: 9,
-    backgroundColor:'white',
-    shadowColor: 'grey',
+    backgroundColor:colors.backgroundColor,
+    shadowColor: colors.grey,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.2,
     flexDirection:'row',
-    height:130,
+    height:height * 0.14,
+    elevation:3
     
   },
   border: {
     borderBottomWidth: 1.4,
-    borderColor: '#dedede',
+    borderColor: colors.borderColor,
   },
   headerText: {
-    fontSize: font_sizes.t3,
+    fontSize: font_sizes.t4,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.6,
     marginBottom: 15,
@@ -58,10 +61,10 @@ const styles = StyleSheet.create({
   bodyText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.3,
-    color:"#00a4f3"
+    // color:"#00a4f3"
   },
   image:{
-    height:130,
-    width:160
+    height:height * 0.14,
+    width:width * 0.4
   }
 });

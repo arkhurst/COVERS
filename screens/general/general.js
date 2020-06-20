@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { GeneralInfo } from '../../data/data';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 export default function General({ navigation }) {
   return (
@@ -19,7 +20,7 @@ export default function General({ navigation }) {
         <TouchableOpacity
           onPress={() => navigation.navigate('Tabs')}
           style={styles.button}>
-          <Text style={([styles.minorText], { color: 'white' })}>
+          <Text style={([styles.minorText], { color: colors.white })}>
             Let's get started...
           </Text>
         </TouchableOpacity>
@@ -31,7 +32,7 @@ export default function General({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.backgroundColor,
     paddingHorizontal: 20,
   },
   mainTitle: {
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: colors.button,
     height: 50,
   },
 });

@@ -2,6 +2,8 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
+import { color } from 'react-native-reanimated';
 
 export default function SettingsCard({ body, title }) {
   return (
@@ -22,7 +24,7 @@ export default function SettingsCard({ body, title }) {
 const styles = StyleSheet.create({
   container: {
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#dedede',
+    borderColor: colors.borderColor,
   },
   body: {
     marginVertical: 30,

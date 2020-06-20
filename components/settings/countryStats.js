@@ -4,6 +4,7 @@ import Card from './worldWideCard';
 import { Ionicons } from '@expo/vector-icons';
 import {addCommas} from '../../constants/constants';
 import font_sizes from '../../constants/font_sizes';
+import colors from '../../constants/colors';
 
 
 function CountryStats(props) {
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   border: {
     borderLeftWidth: StyleSheet.hairlineWidth,
 
-    borderColor: 'grey',
+    borderColor: colors.borderColor,
     marginLeft: 15,
   },
   statsItems: {
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   lastItem: {
     borderLeftWidth: StyleSheet.hairlineWidth,
     marginLeft: 15,
-    borderColor: 'grey',
+    borderColor: colors.borderColor,
   },
   numbers: {
     fontWeight: 'bold',
