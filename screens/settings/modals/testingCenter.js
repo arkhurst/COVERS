@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import getDirections from 'react-native-google-maps-directions';
+import font_sizes from '../../../constants/font_sizes';
 
 
 export default function TestinCenters({close, visible}){
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
       headerTitle: {
         fontFamily: 'AirbnbCereal-Bold',
         letterSpacing: -0.2,
-        fontSize: 32,
+        fontSize: font_sizes.h1,
       },
       venueContainer:{
           flexDirection:'row',
@@ -92,6 +93,6 @@ const styles = StyleSheet.create({
       medium: {
         fontFamily: 'AirbnbCereal-Medium',
         letterSpacing: -0.3,
-        fontSize: 15,
+        fontSize: font_sizes.t3,
       },
 })

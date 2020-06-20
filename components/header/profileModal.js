@@ -14,6 +14,7 @@ import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
 import CountryPicker from 'react-native-country-picker-modal';
 import RadioButtonRN from 'radio-buttons-react-native';
 import { width, height } from '../../constants/constants';
+import font_sizes from '../../constants/font_sizes';
 
 export default function ProfileModal({ visible, cancel }) {
   const [countryCode, setCountryCode] = useState('GH');
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.2,
-    fontSize: 32,
+    fontSize: font_sizes.h1,
   },
   profileDetailsContainer: {
     paddingTop: 30,

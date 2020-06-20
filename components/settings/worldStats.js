@@ -5,6 +5,7 @@ import Card from './worldWideCard';
 import { getGlobal } from '../../queries/queries';
 import { useQuery } from "@apollo/react-hooks";
 import { addCommas } from '../../constants/constants';
+import font_sizes from '../../constants/font_sizes';
 
 
 function WorldWideStats() {
@@ -14,7 +15,7 @@ function WorldWideStats() {
     <Card style={styles.container}>
       <View style={styles.worldStatsContainer}>
         <Fontisto name="world-o" size={26} color="blue" />
-        <Text style={{ marginLeft: 5, fontSize: 17, marginTop: 6,    fontFamily: 'AirbnbCereal-Bold', }}>
+        <Text style={{ marginLeft: 5, fontSize: font_sizes.t2, marginTop: 6,    fontFamily: 'AirbnbCereal-Bold', }}>
           Worldwide Statistics
         </Text>
       </View>
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
   },
   numbers: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: font_sizes.t1,
   },
 });
 

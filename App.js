@@ -21,9 +21,6 @@ export default function App(props) {
    
       Font.loadAsync({
         // fonts used
-        'GoogleSans-Bold': require('./assets/fonts/GoogleSans-Bold.ttf'),
-        'GoogleSans-Medium': require('./assets/fonts/GoogleSans-Medium.ttf'),
-        'GoogleSans-Regular': require('./assets/fonts/GoogleSans-Regular.ttf'),
         'AirbnbCereal-Bold': require('./assets/fonts/AirbnbCereal-Bold.ttf'),
         'AirbnbCereal-Medium': require('./assets/fonts/AirbnbCereal-Medium.ttf'),
         'AirbnbCereal-Book': require('./assets/fonts/AirbnbCereal-Book.ttf'),

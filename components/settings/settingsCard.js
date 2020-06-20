@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import font_sizes from '../../constants/font_sizes';
 
 export default function SettingsCard({ body, title }) {
   return (
@@ -32,12 +33,12 @@ const styles = StyleSheet.create({
   mainTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.5,
-    fontSize: 18,
+    fontSize: font_sizes.t2,
   },
   subText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.5,
     color: 'grey',
-    fontSize: 14,
+    fontSize: font_sizes.t4,
   },
 });

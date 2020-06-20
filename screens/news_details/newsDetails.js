@@ -9,6 +9,7 @@ import {
 import { FontAwesome5, Entypo } from '@expo/vector-icons';
 import ProgressiveImage from '../../components/progressive_image/progressiveImage';
 import { height } from '../../constants/constants';
+import font_sizes from '../../constants/font_sizes';
 
 export default function NewsDetails({ navigation, route }) {
   const { title, body, source, image } = route.params;
@@ -29,7 +30,7 @@ export default function NewsDetails({ navigation, route }) {
         <Text style={{ fontFamily: 'AirbnbCereal-Bold', fontSize: 20 }}>
           {title}
         </Text>
-        <Text style={{ fontSize: 15, paddingVertical: 10, letterSpacing: 0.3 }}>
+        <Text style={{ fontSize: font_sizes.t4, paddingVertical: 10, letterSpacing: 0.3, lineHeight:25 }}>
           {body}
         </Text>
         <View
@@ -42,7 +43,7 @@ export default function NewsDetails({ navigation, route }) {
           <Text
             style={{
               fontFamily: 'AirbnbCereal-Bold',
-              fontSize: 15,
+              fontSize: font_sizes.t4,
               paddingLeft: 10,
             }}>
             {' '}

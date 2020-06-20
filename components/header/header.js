@@ -6,6 +6,7 @@ import Modal from 'react-native-modalbox';
 import ProfileModal from './profileModal';
 import { height } from '../../constants/constants';
 import { Notification } from '../../data/data';
+import font_sizes from '../../constants/font_sizes';
 
 
 
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   headerTitle: {
-    fontSize: 30,
+    fontSize: font_sizes.h2,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.6,
   },
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
   notsTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.6,
-    fontSize: 16,
+    fontSize: font_sizes.t3,
     textAlign: 'center',
   },
   messageList: {

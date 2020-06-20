@@ -8,6 +8,7 @@ import { covertDateTime, width } from '../../constants/constants';
 import ReportModal from '../../screens/report/reportModal';
 import { height } from '../../constants/constants';
 import { removeCaseReport,reports } from '../../context/GlobalState';
+import font_sizes from '../../constants/font_sizes';
 
 export default function CaseReports({ reportFor, contact, description, date }) {
   const [visible, setVisible] = useState(false);
@@ -91,12 +92,12 @@ const styles = StyleSheet.create({
   mainTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.6,
-    fontSize: 15,
+    fontSize: font_sizes.t3,
   },
   book: {
     fontFamily: 'AirbnbCereal-Book',
     letterSpacing: -0.3,
-    fontSize: 14,
+    fontSize: font_sizes.t4,
   },
   deleteItem:{
     backgroundColor:'red',

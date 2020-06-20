@@ -12,6 +12,7 @@ import {
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { width } from '../../constants/constants';
 import { GlobalContext } from '../../context/GlobalState';
+import font_sizes from '../../constants/font_sizes';
 
 export default function Onboarding({ navigation }) {
   const [phoneNumber, setphoneNumber] = useState('');
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   mainText: {
-    fontSize: 15,
+    fontSize: font_sizes.t3,
     fontWeight: 'bold',
     color: 'white',
   },

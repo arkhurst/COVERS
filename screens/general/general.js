@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { GeneralInfo } from '../../data/data';
+import font_sizes from '../../constants/font_sizes';
 
 export default function General({ navigation }) {
   return (
@@ -19,7 +20,7 @@ export default function General({ navigation }) {
           onPress={() => navigation.navigate('Tabs')}
           style={styles.button}>
           <Text style={([styles.minorText], { color: 'white' })}>
-            Let's get started..
+            Let's get started...
           </Text>
         </TouchableOpacity>
       </View>
@@ -36,12 +37,12 @@ const styles = StyleSheet.create({
   mainTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.5,
-    fontSize: 16,
+    fontSize: font_sizes.t3,
   },
   minorText: {
     fontFamily: 'AirbnbCereal-Book',
     letterSpacing: -0.5,
-    fontSize: 15,
+    fontSize: font_sizes.t4,
   },
   button: {
     justifyContent: 'center',

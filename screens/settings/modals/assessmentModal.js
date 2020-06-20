@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { height } from '../../../constants/constants';
+import font_sizes from '../../../constants/font_sizes';
 
 export default function AssessmentModal({ close, visible }) {
   return (
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   mainTitle: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.5,
-    fontSize: 15,
+    fontSize: font_sizes.t3,
   },
   mainText: {
     fontFamily: 'AirbnbCereal-Medium',

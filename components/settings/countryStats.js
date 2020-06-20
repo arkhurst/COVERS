@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import Card from './worldWideCard';
 import { Ionicons } from '@expo/vector-icons';
 import {addCommas} from '../../constants/constants';
+import font_sizes from '../../constants/font_sizes';
 
 
 function CountryStats(props) {
@@ -11,7 +12,7 @@ function CountryStats(props) {
     <Card style={styles.overCont}>
       <View style={styles.countryStatsContainer}>
         <Ionicons bold={false} name="ios-stats" color="#62975f" size={26} />
-        <Text style={{ marginLeft: 5, fontSize: 17, marginTop: 6 }}>
+        <Text style={{ marginLeft: 5, fontSize: font_sizes.t2, marginTop: 6 }}>
           Statistics
         </Text>
       </View>
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
   },
   numbers: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: font_sizes.t1,
   },
   spacing: {
     marginTop: 25,

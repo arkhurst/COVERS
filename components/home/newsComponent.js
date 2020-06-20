@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ProgressiveImage from '../progressive_image/progressiveImage';
+import font_sizes from '../../constants/font_sizes';
 
 export default function NewsComponent(props) {
   const {title, image, onClickNews} = props
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     borderColor: '#dedede',
   },
   headerText: {
-    fontSize: 15,
+    fontSize: font_sizes.t3,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.6,
     marginBottom: 15,

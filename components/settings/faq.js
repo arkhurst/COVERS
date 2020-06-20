@@ -10,6 +10,7 @@ import {
 import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
 import { FAQsContent } from '../../data/data';
+import font_sizes from '../../constants/font_sizes';
 
 export default function FAQComponent() {
   const [state, setState] = useState({
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   headerText: {
-    fontSize: 16,
+    fontSize: font_sizes.t3,
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.8,
   },
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   },
   contentText: {
     fontFamily: 'AirbnbCereal-Medium',
-    fontSize: 14,
+    fontSize: font_sizes.t4,
   },
   inactive: {
     // backgroundColor: 'rgba(255,255,255,1)',

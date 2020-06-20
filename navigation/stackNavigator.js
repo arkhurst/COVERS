@@ -6,6 +6,7 @@ import Verification from '../screens/verification/verification';
 import General from '../screens/general/general';
 import { View , Text } from 'react-native';
 import NewsDetails from '../screens/news_details/newsDetails';
+import font_sizes from '../constants/font_sizes';
 
 const Stack = createStackNavigator();
 
@@ -34,7 +35,7 @@ export default function StackNavigator() {
             height:100
           },
            headerLeft: () => (
-            <Text style={{paddingHorizontal:20, fontFamily: 'AirbnbCereal-Bold', letterSpacing: -0.5,fontSize:30, }}>
+            <Text style={{paddingHorizontal:20, fontFamily: 'AirbnbCereal-Bold', letterSpacing: -0.5,fontSize:font_sizes.h2, }}>
               General Information
             </Text>  
         ),
