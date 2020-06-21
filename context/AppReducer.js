@@ -1,5 +1,20 @@
 export default (state, action) => {
   switch (action.type) {
+    // case "RESTORE_TOKEN":
+    //   return {
+    //     ...state,
+    //     userToken: action.userToken
+    //   }
+    // case "SIGN_IN":
+    //     return {
+    //       ...state,
+    //       userToken: action.payload
+    //     }  
+    // case "SIGN_IN":
+    //     return {
+    //       ...state,
+    //         userToken:null
+    //       }      
     case 'REMOVE_CASE':
       return {
         ...state,

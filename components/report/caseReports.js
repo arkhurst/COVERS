@@ -10,7 +10,7 @@ import { height } from '../../constants/constants';
 import { removeCaseReport, reports } from '../../context/GlobalState';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
-import { color } from 'react-native-reanimated';
+
 
 export default function CaseReports({ reportFor, contact, description, date }) {
   const [visible, setVisible] = useState(false);
@@ -77,8 +77,8 @@ export default function CaseReports({ reportFor, contact, description, date }) {
           height: 65,
           top: height * 0.58,
         }}
-        buttonColor={color.buttonColor}
-        iconTextColor={colors.white}
+        buttonColor="black"
+        iconTextColor="#FFFFFF"
         visible={isFocused}
         iconTextComponent={<Ionicons name="ios-add" />}
       />

@@ -13,7 +13,7 @@ export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   const client = new ApolloClient({
-    uri: 'https://covid19-graphql.netlify.app/',
+    uri: 'https://signalc.herokuapp.com/GraphQL',
   });
 
   async function loadResourceAsync() {

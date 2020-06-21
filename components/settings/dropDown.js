@@ -15,7 +15,7 @@ import Card from './worldWideCard';
 import { Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 import CountryStats from './countryStats';
-import { CountryQuery } from '../../queries/queries';
+import { CountryQuery } from '../../graphql/queries/queries';
 import { covertDateTime } from '../../constants/constants';
 import colors from '../../constants/colors';
 import { StatsURL } from '../../config/config';

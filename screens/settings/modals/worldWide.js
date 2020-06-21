@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Modal, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
-import { getGlobal } from '../../../queries/queries';
+import { getGlobal } from '../../../graphql/queries/queries';
 import axios from 'axios';
 import WorldWideStats from '../../../components/settings/worldStats';
 import DropdownComponent from '../../../components/settings/dropDown';

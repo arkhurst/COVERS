@@ -1,6 +1,7 @@
-import React, { useReducer, createContext } from 'react';
+import React, { useReducer, createContext, useMemo, useEffect } from 'react';
 import { Symptoms } from '../data/data';
 import AppReducer from './AppReducer';
+import Auth from '../components/auth'
 
 const initialState = {
   reports: [],
@@ -14,6 +15,24 @@ export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  // useEffect(() => {
+  //   let userToken = Auth.getStorage() === undefined ? null : Auth.getStorage();
+  //   dispatch({ type:'RESTORE_TOKEN', userToken : JSON.parse(userToken)})
+  // }, [])
+
+  // const authContextController = useMemo(
+  //   () => ({
+  //     signIn : async (token) => {
+  //       Auth.setStorage(JSON.stringify(token));
+  //       dispatch({ type: "SIGN_IN", payload : token})
+  //     },
+  //     signOut : () => {
+  //       Auth.clearStorage();
+  //       dispatch({ type: "SIGN_OUT"})
+  //     }
+  //   })
+  // )
   //  Actions
   function removeCaseReport(id) {
     dispatch({

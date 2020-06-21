@@ -11,7 +11,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native-gesture-handler';
 import { News } from '../../data/data';
-import { getGhana } from '../../queries/queries';
+import { getGhana } from '../../graphql/queries/queries';
 import { covertDateTime, height } from '../../constants/constants';
 import axios from 'axios';
 import SliderComponent from '../../components/home/sliderComponent';

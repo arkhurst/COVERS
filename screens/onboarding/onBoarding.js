@@ -12,15 +12,21 @@ import {
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { width } from '../../constants/constants';
 import { GlobalContext } from '../../context/GlobalState';
+import { useMutation } from '@apollo/react-hooks';
+import { LogInUser as LOGIN} from '../../graphql/mutations/mutations';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
 
 export default function Onboarding({ navigation }) {
   const [phoneNumber, setphoneNumber] = useState('');
+  // const [Error, setError ] = useState('')
   const [loading, setLoading] = useState(false);
+  // const [login, {loading}] = useMutation(LOGIN)
 
+  
   const { addPhoneNumber } = useContext(GlobalContext);
 
+  // FIX ME
   function handleButton() {
     setLoading(true);
     setTimeout(() => {
@@ -29,6 +35,19 @@ export default function Onboarding({ navigation }) {
     }, 1500);
     addPhoneNumber(phoneNumber);
   }
+//  function handleButton(){
+//     login({
+//       variables:{phoneNumber}
+//     })
+//     .then(() =>{
+//       addPhoneNumber(phoneNumber)
+//       navigation.navigate('Verification')
+//     })
+//     .catch((e) => {
+//       setError(e)
+//     })
+//   }
+
   return (
     <TouchableWithoutFeedback
       onPress={() => Keyboard.dismiss()}
