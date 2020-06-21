@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, View ,Image} from 'react-native';
+import { Text, StyleSheet, View ,Image, TouchableOpacity} from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
-import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 import Modal from 'react-native-modalbox';
 import ProfileModal from './profileModal';
 import { height } from '../../constants/constants';

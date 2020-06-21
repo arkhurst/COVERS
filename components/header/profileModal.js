@@ -7,10 +7,11 @@ import {
   KeyboardAvoidingView,
   ActivityIndicator,
   Alert,
+  TouchableOpacity
 } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
-import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
+import {  TextInput } from 'react-native-gesture-handler';
 import CountryPicker from 'react-native-country-picker-modal';
 import RadioButtonRN from 'radio-buttons-react-native';
 import { width, height } from '../../constants/constants';

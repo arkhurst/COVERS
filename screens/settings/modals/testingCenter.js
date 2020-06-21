@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Modal, Button} from 'react-native';
+import { View, Text, StyleSheet, Modal, TouchableOpacity} from 'react-native';
 import Constants from 'expo-constants';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import getDirections from 'react-native-google-maps-directions';
 import font_sizes from '../../../constants/font_sizes';

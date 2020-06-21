@@ -34,7 +34,7 @@ export default function Verification({ navigation }) {
 
   function goBack(){
     navigation.goBack()
-    deletePhoneNumber(phoneNumber)
+    deletePhoneNumber(phoneNumber) 
   }
 
   return (

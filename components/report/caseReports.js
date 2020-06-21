@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
-import { Swipeable, TouchableOpacity } from 'react-native-gesture-handler';
+import { View, Text, StyleSheet, Animated , TouchableOpacity} from 'react-native';
+import { Swipeable } from 'react-native-gesture-handler';
 import FAB from 'react-native-fab';
 import { Ionicons } from '@expo/vector-icons';
 import { useIsFocused } from '@react-navigation/native';

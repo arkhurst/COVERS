@@ -46,9 +46,9 @@ const CountryList = ({ visible, close, data, selectCountryStats }) => {
                     />
                     <Text
                       style={{
-                        marginLeft: 15,
+                        marginLeft: 15, 
                         fontSize: 16,
-                        fontWeight: '600',
+                        fontFamily: 'AirbnbCereal-Bold',
                       }}>
                       {item?.country}
                     </Text>
@@ -167,7 +167,7 @@ export default function DropdownComponent() {
       </TouchableWithoutFeedback>
       <CountryStats country={country} />
       <View style={styles.dateContainer}>
-        <Text style={{ color: colors.grey }}>
+        <Text style={{ color: colors.grey, fontFamily: 'AirbnbCereal-Bold', }}>
           Last Updated: {covertDateTime(country?.result?.updated || 'N/A')}
         </Text>
       </View>

@@ -54,7 +54,7 @@ export const GlobalProvider = ({ children }) => {
         reports: state.reports,
         symptoms: state.symptoms,
         phoneNumber: state.phoneNumber,
-        userVitals: state.userVitals,
+        userVitals: state.userVitals, 
         removeCaseReport,
         makeCaseReport,
         addPhoneNumber,

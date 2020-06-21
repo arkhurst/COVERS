@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import ProgressiveImage from '../progressive_image/progressiveImage';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
   bodyText: {
     fontFamily: 'AirbnbCereal-Bold',
     letterSpacing: -0.3,
-    // color:"#00a4f3"
+    color:"#00a4f3"
   },
   image: {
     height: height * 0.14,

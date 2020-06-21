@@ -45,7 +45,7 @@ export default function App(props) {
         onFinish={() => handleFinishLoading(setLoadingComplete)}
       />
     );
-  } else {
+  } else { 
     return (
       <ApolloProvider client={client}>
         <GlobalProvider>

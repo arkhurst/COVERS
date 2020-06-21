@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native';
+import {  ScrollView } from 'react-native-gesture-handler';
 import { GlobalContext } from '../../context/GlobalState';
 
 const Card = ({ value, sign, handleSelect, idOfSymptom, valueData, selectStatus }) => {

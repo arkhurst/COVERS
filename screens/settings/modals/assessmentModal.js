@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Modal } from 'react-native';
+import { View, Text, StyleSheet, Modal,TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { height } from '../../../constants/constants';
 import font_sizes from '../../../constants/font_sizes';

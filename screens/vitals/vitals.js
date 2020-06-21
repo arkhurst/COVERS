@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text , TouchableOpacity} from 'react-native';
 import Constants from 'expo-constants';
 import Header from '../../components/header/header';
 import LottieView from 'lottie-react-native';
 import * as vitalsAnim from '../../assets/lottie/cardio.json';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import VitalsModal from './vitalsModal';
 import { GlobalContext } from '../../context/GlobalState';
 import { width, height } from '../../constants/constants';

@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, Modal, StyleSheet } from 'react-native';
+import { View, Text, Modal, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import Constants from 'expo-constants';
 import LogSymptoms from '../../components/vitals/logSymptoms';
 import font_sizes from '../../constants/font_sizes';

@@ -6,9 +6,10 @@ import {
   StyleSheet,
   ActivityIndicator,
   Alert,
+  TouchableOpacity
 } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
-import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
+import { TextInput } from 'react-native-gesture-handler';
 import RadioButtonRN from 'radio-buttons-react-native';
 import Constants from 'expo-constants';
 import { width, height } from '../../constants/constants';
