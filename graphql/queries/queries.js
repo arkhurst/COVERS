@@ -1,4 +1,4 @@
-
+import gql from 'graphql-tag'
 
 const CountryQuery = `
 query {
@@ -89,4 +89,17 @@ query {
     }
 `
 
-export { getCountry, getGlobal, getGhana,CountryQuery }
+const getTestingCenters = gql`
+  query {
+      testingSites {
+          _id,
+          name
+          placesName
+          location {
+              coordinates
+          },
+          createdAt
+      }
+  }
+`
+export { getCountry, getGlobal, getGhana,CountryQuery, getTestingCenters }

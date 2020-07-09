@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import BottomTab from './bottomTabs';
 import Onboarding from '../screens/onboarding/onBoarding';
 import Verification from '../screens/verification/verification';
@@ -12,7 +12,11 @@ const Stack = createStackNavigator();
 
 export default function StackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        cardOverlay:true
+      }}
+    >
       <Stack.Screen 
          name="Onboarding"
          component={Onboarding}

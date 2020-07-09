@@ -22,7 +22,7 @@ import { StatsURL } from '../../config/config';
 export default function HomeScreen({ navigation }) {
   // const { loading, data, error } = useQuery(getGhana);
   const [GhanaData, setGhanaData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getGhanaStats();
