@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, ActivityIndicator } from 'react-native';
-import { useQuery } from '@apollo/react-hooks';
+import { View, StyleSheet, Text, Platform } from 'react-native';
 import LottieView from 'lottie-react-native';
-import * as load from '../../assets/lottie/loading2.json';
+import * as iosAnimation from '../../assets/lottie/spinner.json';
+import * as andriodAnimation from '../../assets/lottie/spinner-android.json';
 import Constants from 'expo-constants';
 import Header from '../../components/header/header';
 import {
@@ -21,13 +21,13 @@ import { StatsURL } from '../../config/config';
 
 export default function HomeScreen({ navigation }) {
   // const { loading, data, error } = useQuery(getGhana);
-  const [GhanaData, setGhanaData] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [GhanaData, setGhanaData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getGhanaStats();
   }, []);
-  
+
   const getGhanaStats = async () => {
     axios({
       url: StatsURL,
@@ -37,12 +37,10 @@ export default function HomeScreen({ navigation }) {
       },
     }).then((result) => {
       setGhanaData(result.data);
-      setLoading(!loading)
+      setLoading(!loading);
     });
   };
 
-
-  
   function onClickNews(item) {
     navigation.navigate('News', { ...item });
   }
@@ -54,7 +52,12 @@ export default function HomeScreen({ navigation }) {
       {loading ? (
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           {/* <ActivityIndicator size="large" /> */}
-          <LottieView source={load} autoPlay loop style={styles.lottie} />
+          <LottieView
+            source={Platform.OS === 'ios' ? iosAnimation : andriodAnimation}
+            autoPlay
+            loop
+            style={styles.lottie}
+          />
         </View>
       ) : (
         <ScrollView>
@@ -107,6 +110,8 @@ const styles = StyleSheet.create({
     letterSpacing: -0.3,
   },
   lottie: {
-    height: height * 0.6,
+    height: 100,
+    width: 100,
+    paddingTop:height * 0.12
   },
 });

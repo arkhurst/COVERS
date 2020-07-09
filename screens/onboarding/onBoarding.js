@@ -4,49 +4,42 @@ import {
   Text,
   StyleSheet,
   ImageBackground,
-  KeyboardAvoidingView, 
+  KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
   ActivityIndicator,
+  StatusBar,
 } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { width } from '../../constants/constants';
 import { GlobalContext } from '../../context/GlobalState';
 import { useMutation } from '@apollo/react-hooks';
-import { LogInUser as LOGIN} from '../../graphql/mutations/mutations';
+import { showMessage } from 'react-native-flash-message';
+import { LogInUser as LOGIN } from '../../graphql/mutations/mutations';
 import font_sizes from '../../constants/font_sizes';
 import colors from '../../constants/colors';
 
 export default function Onboarding({ navigation }) {
-  const [phoneNumber, setphoneNumber] = useState('');
-  // const [Error, setError ] = useState('')
-  const [loading, setLoading] = useState(false);
-  // const [login, {loading}] = useMutation(LOGIN)
-
-  
   const { addPhoneNumber } = useContext(GlobalContext);
-
-  // FIX ME
-  function handleButton() {
-    setLoading(true);
-    setTimeout(() => {
+  const [phone, setphoneNumber] = useState('');
+  const [loginMember, { loading }] = useMutation(LOGIN, {
+    variables: {
+      phone,
+    },
+    onCompleted: () => {
+      addPhoneNumber(phone);
       navigation.navigate('Verification');
-      setLoading(false);
-    }, 1500);
-    addPhoneNumber(phoneNumber);
-  }
-//  function handleButton(){
-//     login({
-//       variables:{phoneNumber}
-//     })
-//     .then(() =>{
-//       addPhoneNumber(phoneNumber)
-//       navigation.navigate('Verification')
-//     })
-//     .catch((e) => {
-//       setError(e)
-//     })
-//   }
+    },
+    onError: ({ graphQLErrors, networkError }) => {
+      console.log('Error occured', graphQLErrors, networkError);
+      showMessage({
+        type: 'warning',
+        message: 'Oops, error occured. ',
+        description:
+          "Don't fret, please check your internet connection and try again",
+      });
+    },
+  });
 
   return (
     <TouchableWithoutFeedback
@@ -73,21 +66,21 @@ export default function Onboarding({ navigation }) {
           </Text>
           <View style={{ paddingTop: 40, flexDirection: 'row' }}>
             <TextInput
-              value={phoneNumber}
-              onChangeText={phoneNumber => {
-                setphoneNumber(phoneNumber);
+              value={phone}
+              onChangeText={(phone) => {
+                setphoneNumber(phone);
               }}
               keyboardType="number-pad"
               style={styles.textInput}
             />
             <Text style={styles.phone}>Phone number</Text>
           </View>
-          {phoneNumber.length < 10 ? (
+          {phone.length < 10 || Number(phone.charAt(0)) !== 0 ? (
             <View style={styles.initialButtonState}>
               <Text style={styles.minorText}>Get Started</Text>
             </View>
           ) : (
-            <TouchableOpacity onPress={handleButton} style={styles.button}>
+            <TouchableOpacity onPressIn={loginMember} style={styles.button}>
               {loading ? (
                 <ActivityIndicator color={colors.white} />
               ) : (

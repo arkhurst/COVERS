@@ -1,14 +1,41 @@
-import React, { useLayoutEffect, useContext } from 'react';
+import React, { useLayoutEffect, useContext, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler';
+import { showMessage } from 'react-native-flash-message';
 import { width, height } from '../../constants/constants';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { GlobalContext } from '../../context/GlobalState';
 import colors from '../../constants/colors';
+import { useMutation } from '@apollo/react-hooks';
+import { validateUser } from '../../graphql/mutations/mutations';
 
 export default function Verification({ navigation }) {
   const { phoneNumber, deletePhoneNumber } = useContext(GlobalContext);
+  const [otp, setOTP] = useState('');
+  const [validateLoginUser, { loading }] = useMutation(validateUser, {
+    onError: () => {
+      console.log('An error occured');
+      showMessage: ({
+        type: 'warning',
+        message: 'You entered an incorrect PIN',
+        description:
+          'Please check the pin sent to you to verify and try again.',
+      });
+    },
+    onCompleted: (data) => {
+      if (!data) {
+        showMessage({
+          textStyle: { fontFamily: 'AirbnbCereal-Book' },
+          duration: 3000,
+          position: 'bottom',
+          message: 'You entered an incorrect PIN',
+          description:
+            'Please check the pin sent to you to verify and try again. If you have not received  the pin, tap the resend option or verify your phone number to be sure its correct',
+        });
+      }
+    },
+  });
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -32,9 +59,9 @@ export default function Verification({ navigation }) {
     });
   }, [navigation]);
 
-  function goBack(){
-    navigation.goBack()
-    deletePhoneNumber(phoneNumber) 
+  function goBack() {
+    navigation.goBack();
+    deletePhoneNumber(phoneNumber);
   }
 
   return (
