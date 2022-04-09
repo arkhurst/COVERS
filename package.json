@@ -19,7 +19,7 @@
     "expo-app-loading": "^1.2.1",
     "graphql": "^15.0.0",
     "lottie-react-native": "~2.6.1",
-    "moment": "^2.25.3",
+    "moment": "^2.29.2",
     "numeral": "^2.0.6",
     "radio-buttons-react-native": "^1.0.4",
     "react": "16.13.1",
